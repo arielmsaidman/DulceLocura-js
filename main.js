@@ -105,11 +105,10 @@ const productos=[
         precio:5000
     }
 
-
 ];
 
 
-/***creo lard que se muestra en cada html */
+/***creo card que se muestra en cada html */
 function CrearCard(producto){
 
     const card=document.createElement("div");
@@ -126,16 +125,49 @@ function CrearCard(producto){
     imagen.alt="NOIMG";
     imagen.className="imagen";
 
+    const selectTalle = document.createElement("select");
+
+        for(let talle in producto.talles){
+
+        const opcion = document.createElement("option");
+
+        opcion.value = talle;
+        opcion.innerText = talle.toUpperCase();
+
+        selectTalle.appendChild(opcion); 
+        //recorre automáticamente los talles del producto y crea las opciones del <select>. 
+    }
+
+    // const selectTalle=document.createElement("select");
+    //     const opcionS = document.createElement("option");
+    //     opcionS.value = "s";
+    //     opcionS.innerText = "S";
+
+    //     const opcionM = document.createElement("option");
+    //     opcionM.value = "m";
+    //     opcionM.innerText = "M";
+
+    //     const opcionL = document.createElement("option");
+    //     opcionL.value = "l";
+    //     opcionL.innerText = "L";
+
     const boton = document.createElement("button");
     boton.innerText = "Agregar al carrito";
     boton.className = "btn-generico";
-    boton.onclick = () => AgregarAlCarrito(producto.id);
+    boton.onclick = () => AgregarAlCarrito(producto.id, selectTalle.value);
 
     card.appendChild(nombre);
     card.appendChild(precio);
     card.appendChild(imagen);
-    card.appendChild(boton);
+        
+        // selectTalle.appendChild(opcionS);
+        // selectTalle.appendChild(opcionM);
+        // selectTalle.appendChild(opcionL);
 
+    card.appendChild(selectTalle);
+    card.appendChild(boton);
+    
+       
 
     const container = document.getElementById("container");
 
@@ -145,14 +177,8 @@ function CrearCard(producto){
     //document.getElementById("container").appendChild(card);
 };
 
-if(typeof categoriaActual !== "undefined"){
-   
-    const filtrados = productos.filter(
-    producto => producto.categoria === categoriaActual);
 
-    filtrados.forEach(el=>CrearCard(el));
-}
-
+productos.forEach(el=>CrearCard(el));
 
 
 ///******TODO RELACIONADO A AGREGAR AL CARRITO************************/
@@ -170,7 +196,7 @@ if (data) {//si la data no esta vacia(habia algo en el carrito previamente), lo 
 
 
 
-function AgregarAlCarrito(idElegido){
+function AgregarAlCarrito(idElegido,TalleElegido){
 
     idElegido = Number(idElegido);
     //idElegido =parseInt(idElegido);
@@ -182,16 +208,18 @@ function AgregarAlCarrito(idElegido){
 
     if(productoFinal){//pregunta si el producto esta adentro del catalogo
             
-            
-        if(carrito.some(el => Number(el.id) === Number(productoFinal.id))){
+        const existeProducto = carrito.some(el => el.id === productoFinal.id && el.talle === TalleElegido);
+       
+            if(existeProducto){
                 //Recorre carrito y devuelve
-                //true → si algún elemento tiene ese id
+                //true → si algún elemento tiene ese id con ese talle
                 //false → si ninguno coincide
                 //Es básicamente: “¿ya existe este producto en el carrito?”
 
-            carrito = carrito.map(el => { 
-                if(Number(el.id) === Number(productoFinal.id)){
-                        //si existe un producto con la misma id, primero vuelvo a copiar todo el carrito en el carrito
+                carrito = carrito.map(el => { 
+                
+                if(Number(el.id) === Number(productoFinal.id) && el.talle === TalleElegido){
+                        //si existe un producto con la misma id y mismo talle, primero vuelvo a copiar todo el carrito en el carrito
                         //y despues al objeto que existe(id guales) le suma en cantidad
                     return {
                         ...el,
@@ -204,15 +232,15 @@ function AgregarAlCarrito(idElegido){
                 }
             });
         } else {
-            carrito.push({ ...productoFinal, cantidad: 1 });
+            carrito.push({ ...productoFinal,talle: TalleElegido, cantidad: 1 });
                 //Agrega un nuevo producto al carrito en caso de que ese producto no estaba
                 //con una nueva propiedad "cantidad:1"
         }
         
         localStorage.setItem("carrito", JSON.stringify(carrito));//le pongo la bolsa para mandralo a frizeer
             //alert("Agregaste correctamente " + productoFinal.nombre + " al carrito");
-          // verCarrito();
-       console.log(carrito);
+        verCarrito();
+        console.log(carrito);
     }
     else{
         alert("Ese producto no esta en tu catalogo");
@@ -239,6 +267,9 @@ function crearCardCarrito(producto) {
     img.alt = "NOIMG";
     img.className = "imagen";
 
+    const talle = document.createElement("p");
+    talle.innerText = `Talle: ${producto.talle}`;
+
     const cantidad = document.createElement("p");
     cantidad.innerText = `Cantidad: ${producto.cantidad}`;
 
@@ -253,6 +284,7 @@ function crearCardCarrito(producto) {
     card.appendChild(nombre);
     card.appendChild(precio);
     card.appendChild(img);
+    card.appendChild(talle);
     card.appendChild(cantidad);
     card.appendChild(total);
     // card.appendChild(boton);
@@ -268,9 +300,9 @@ function verCarrito() {
 };
 
 
-if(document.getElementById("carrito")){//"si existe un elemento HTML con id='carrito'"
-   verCarrito();
-}
+//if(document.getElementById("carrito")){//"si existe un elemento HTML con id='carrito'"
+ //  verCarrito();
+//}
 
 function VaciarCarrito(){
    
@@ -278,7 +310,7 @@ function VaciarCarrito(){
         
         carrito=[];
         localStorage.setItem("carrito", JSON.stringify(carrito));
-        alert("Se vacio el carrito correctamente!");
+       // alert("Se vacio el carrito correctamente!");
         document.getElementById("carrito").innerHTML="";//vacía visualmente el HTML.
 
     } else {
