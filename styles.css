@@ -1,0 +1,44 @@
+.container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2rem 0rem;
+}
+ 
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 20rem;
+    width: 12rem;
+    border: solid 1px darkgray;
+    background-color: aliceblue;
+    padding: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.card:hover{
+    transform: scale(1.05);
+}
+
+.imagen{
+    height: 8rem;
+    width: auto;
+}
+
+.btn-generico{
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: burlywood;
+    transition: linear 0.2s;
+    border: none;
+}
+
+.btn-generico:hover{
+    background-color: blanchedalmond;
+    transition: linear 0.2s;
+}
