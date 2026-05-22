@@ -1,0 +1,118 @@
+ 
+[
+    {   
+        "id":1,
+        "categoria": "trajes de banio",
+        "nombre":"Ola esmeralda",
+        "talles":{
+            "s":3,
+            "m":2,
+            "l":1
+        },
+        "imagen":"imagenes/TrajesDeBanio/olaesmeralda.jpeg",
+        "precio":5000
+    },
+
+    {
+        "id":2,
+        "categoria": "trajes de banio",
+        "nombre":"Paraiso floral",
+        "talles":{
+            "s":3,
+            "m":2,
+            "l":1
+        },
+        "imagen":"imagenes/TrajesDeBanio/paraisofloral.jpeg",
+        "precio":5000
+    },
+
+    {
+        "id":3,
+        "categoria": "trajes de banio",
+        "nombre":"Fucsia glam",
+        "talles":{
+            "s":3,
+            "m":2,
+            "l":1
+        },
+        "imagen":"imagenes/TrajesDeBanio/fucsiaglam.jpeg",
+        "precio":5000
+    },
+
+    {
+        "id":4,
+        "nombre":"Leopardo tropical",
+        "categoria": "trajes de banio",
+        "talles":{
+            "s":3,
+            "m":2,
+            "l":1
+        },
+        "imagen":"imagenes/TrajesDeBanio/leopardotropical.jpeg",
+        "precio":5000
+    },
+
+    {
+        "id":5,
+        "categoria": "trajes de banio",
+        "nombre":"Citrus chic",
+        "talles":{
+            "s":3,
+            "m":2,
+            "l":1
+        },
+        "imagen":"imagenes/TrajesDeBanio/citruschic.jpeg",
+        "precio":5000
+    },
+
+    {
+        "id":6,
+        "categoria": "trajes de banio",
+        "nombre":"Safari sunset",
+        "talles":{
+            "s":3,
+            "m":2,
+            "l":1
+        },
+        "imagen":"imagenes/TrajesDeBanio/safarisunset.jpeg",
+        "precio":5000
+    },
+
+    {
+        "id":7,
+        "categoria": "conjuntos deportivos",
+        "nombre":"Camuflaje Urbano",
+        "talles":{
+            "s":3,
+            "m":2,
+            "l":1
+        },
+        "imagen":"imagenes/ConjuntosDeportivos/ConjuntoCamuflajeUrbano.png",
+        "precio":5000
+    },
+
+    {
+        "id":8,
+        "categoria": "conjuntos deportivos",
+        "nombre":"Indigo Clasico",
+        "talles":{
+            "s":3,
+            "m":2,
+            "l":1
+        },
+        "imagen":"imagenes/ConjuntosDeportivos/ConjuntoIndigoClasico.png",
+        "precio":5000
+    },
+      {
+        "id":9,
+        "categoria": "sweaters",
+        "nombre":"Magenta Diamante",
+        "talles":{
+            "s":3,
+            "m":2,
+            "l":1
+        },
+        "imagen":"imagenes/Sweaters/MagentaDiamante.png",
+        "precio":5000
+    }
+]
