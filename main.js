@@ -99,6 +99,18 @@ const container = document.createElement("div");
     document.body.appendChild(container);
 
 
+
+const CrearTituloCarrito = document.createElement("h2");
+
+    CrearTituloCarrito.innerText="Carrito"; 
+    CrearTituloCarrito.id="titulo-carrito";   
+    CrearTituloCarrito.classList.add("titulo-carrito");
+    document.body.appendChild(CrearTituloCarrito);
+    // OCULTO AL INICIO
+    CrearTituloCarrito.style.display = "none";
+    
+
+
 /***creo la eitqueta para cada card*************/
 const carritoHTML = document.createElement("div");
 
@@ -114,13 +126,16 @@ const LimpiarCarrito= document.createElement("button");
     LimpiarCarrito.classList.add("btn-generico");
     LimpiarCarrito.innerText="Limpiar Carrito";
     document.body.appendChild(LimpiarCarrito);
+    // OCULTO AL INICIO
+    LimpiarCarrito.style.display = "none";
+
+   
 
 
-
-const controles = document.createElement("div");
-    controles.classList.add("controles");
-    document.body.appendChild(controles);
-    controles.appendChild(LimpiarCarrito);
+// const controles = document.createElement("div");
+//     controles.classList.add("controles");
+//     document.body.appendChild(controles);
+//     controles.appendChild(LimpiarCarrito);
 
 
 
@@ -339,7 +354,8 @@ function AgregarAlCarrito(idElegido,TalleElegido){
             carrito.push({ ...productoFinal,talle: TalleElegido, cantidad: 1 });
                 //Agrega un nuevo producto al carrito en caso de que ese producto no estaba
                 //con una nueva propiedad "cantidad:1"
-        }
+            document.getElementById("btn-limpiar").style.display = "block"; //se hace visible el boton "limpiar carrito"
+        }   document.getElementById("titulo-carrito").style.display = "block"; //se hace visible el el titulo "carrito"
         
         localStorage.setItem("carrito", JSON.stringify(carrito));//le pongo la bolsa para mandralo a frizeer
             //alert("Agregaste correctamente " + productoFinal.nombre + " al carrito");
@@ -421,15 +437,21 @@ function VaciarCarrito(){
        // alert("Se vacio el carrito correctamente!");
         document.getElementById("carrito").innerHTML="";//vacía visualmente el HTML.
 
+        document.getElementById("btn-limpiar").style.display = "none";//se hace invisible el boton "Limpiar carrito"
+        document.getElementById("titulo-carrito").style.display = "none";//se hace invisible el titulo " carrito"
+
     } else {
+
         alert("El carrito esta vacío");
     };
 
 }
 
-//Boton vaciar carrito
-const btnLimpiarCarrito = document.getElementById("btn-limpiar");
-btnLimpiarCarrito.onclick=()=>VaciarCarrito();
+    //Boton vaciar carrito
+    const btnLimpiarCarrito = document.getElementById("btn-limpiar");
+    btnLimpiarCarrito.onclick=()=>VaciarCarrito();
+
+
 
 
 /****TODO RELACIONADO A FILTRAR PRODUCTOS*****************************/
