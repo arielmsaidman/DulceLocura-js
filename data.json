@@ -2,39 +2,27 @@
 [
     {   
         "id":1,
-        "categoria": "trajes de banio",
+        "categoria": "trajes de baño",
         "nombre":"Ola esmeralda",
-        "talles":{
-            "s":3,
-            "m":2,
-            "l":1
-        },
+        "talles": ["s", "m", "l"],
         "imagen":"imagenes/TrajesDeBanio/olaesmeralda.jpeg",
         "precio":5000
     },
 
     {
         "id":2,
-        "categoria": "trajes de banio",
+        "categoria": "trajes de baño",
         "nombre":"Paraiso floral",
-        "talles":{
-            "s":3,
-            "m":2,
-            "l":1
-        },
+        "talles":["s", "m", "l"],
         "imagen":"imagenes/TrajesDeBanio/paraisofloral.jpeg",
         "precio":5000
     },
 
     {
         "id":3,
-        "categoria": "trajes de banio",
+        "categoria": "trajes de baño",
         "nombre":"Fucsia glam",
-        "talles":{
-            "s":3,
-            "m":2,
-            "l":1
-        },
+        "talles":["s", "m", "l"],
         "imagen":"imagenes/TrajesDeBanio/fucsiaglam.jpeg",
         "precio":5000
     },
@@ -42,38 +30,26 @@
     {
         "id":4,
         "nombre":"Leopardo tropical",
-        "categoria": "trajes de banio",
-        "talles":{
-            "s":3,
-            "m":2,
-            "l":1
-        },
+        "categoria": "trajes de baño",
+        "talles":["s", "m", "l"],
         "imagen":"imagenes/TrajesDeBanio/leopardotropical.jpeg",
         "precio":5000
     },
 
     {
         "id":5,
-        "categoria": "trajes de banio",
+        "categoria": "trajes de baño",
         "nombre":"Citrus chic",
-        "talles":{
-            "s":3,
-            "m":2,
-            "l":1
-        },
+        "talles":["s", "m", "l"],
         "imagen":"imagenes/TrajesDeBanio/citruschic.jpeg",
         "precio":5000
     },
 
     {
         "id":6,
-        "categoria": "trajes de banio",
+        "categoria": "trajes de baño",
         "nombre":"Safari sunset",
-        "talles":{
-            "s":3,
-            "m":2,
-            "l":1
-        },
+        "talles":["s", "m", "l"],
         "imagen":"imagenes/TrajesDeBanio/safarisunset.jpeg",
         "precio":5000
     },
@@ -82,11 +58,7 @@
         "id":7,
         "categoria": "conjuntos deportivos",
         "nombre":"Camuflaje Urbano",
-        "talles":{
-            "s":3,
-            "m":2,
-            "l":1
-        },
+        "talles":["s", "m", "l"],
         "imagen":"imagenes/ConjuntosDeportivos/ConjuntoCamuflajeUrbano.png",
         "precio":5000
     },
@@ -95,23 +67,97 @@
         "id":8,
         "categoria": "conjuntos deportivos",
         "nombre":"Indigo Clasico",
-        "talles":{
-            "s":3,
-            "m":2,
-            "l":1
-        },
+        "talles":["s", "m", "l"],
         "imagen":"imagenes/ConjuntosDeportivos/ConjuntoIndigoClasico.png",
         "precio":5000
     },
-      {
+
+    {
         "id":9,
+        "categoria": "conjuntos deportivos",
+        "nombre":"Rojo Dinamico",
+        "talles":["s", "m", "l"],
+        "imagen":"imagenes/ConjuntosDeportivos/ConjuntoRojoDinamico.jpeg",
+        "precio":5000
+    },
+
+    {
+        "id":10,
+        "categoria": "conjuntos deportivos",
+        "nombre":"Algodon de azucar",
+        "talles":["s", "m", "l"],
+        "imagen":"imagenes/ConjuntosDeportivos/ConjuntoSueñoAlgodonDeAzucar.jpeg",
+        "precio":5000
+    },
+
+    {
+        "id":11,
+        "categoria": "conjuntos deportivos",
+        "nombre":"Vortex Activo",
+        "talles":["s", "m", "l"],
+        "imagen":"imagenes/ConjuntosDeportivos/ConjuntoVortexActivo.jpeg",
+        "precio":5000
+    },
+
+    {
+        "id":12,
+        "categoria": "conjuntos deportivos",
+        "nombre":"Zafari Chic",
+        "talles":["s", "m", "l"],
+        "imagen":"imagenes/ConjuntosDeportivos/ConjuntoZafariChic.jpeg",
+        "precio":5000
+    },
+
+    {
+        "id":13,
+        "categoria": "sweaters",
+        "nombre":"Arena Camel",
+        "talles":["s", "m", "l"],
+        "imagen":"imagenes/Sweaters/ArenaCamel.png",
+        "precio":5000
+    },
+
+    {
+        "id":14,
+        "categoria": "sweaters",
+        "nombre":"Nubes de menta",
+        "talles":["s", "m", "l"],
+        "imagen":"imagenes/Sweaters/NubesDeMenta.png",
+        "precio":5000
+    },
+
+    {
+        "id":15,
+        "categoria": "sweaters",
+        "nombre":"Oceano profundo",
+        "talles":["s", "m", "l"],
+        "imagen":"imagenes/Sweaters/OceanoProfundo.png",
+        "precio":5000
+    },
+
+    {
+        "id":16,
+        "categoria": "sweaters",
+        "nombre":"Otoño mostaza",
+        "talles":["s", "m", "l"],
+        "imagen":"imagenes/Sweaters/OtoñoMostaza.png",
+        "precio":5000
+    },
+
+    {
+        "id":17,
+        "categoria": "sweaters",
+        "nombre":"Retro floral",
+        "talles":["s", "m", "l"],
+        "imagen":"imagenes/Sweaters/RetroFloral.png",
+        "precio":5000
+    },
+
+    {
+        "id":18,
         "categoria": "sweaters",
         "nombre":"Magenta Diamante",
-        "talles":{
-            "s":3,
-            "m":2,
-            "l":1
-        },
+        "talles":["s", "m", "l"],
         "imagen":"imagenes/Sweaters/MagentaDiamante.png",
         "precio":5000
     }

@@ -12,7 +12,7 @@ const carousel = document.createElement("div");
     
     carousel.classList.add("carousel");
     portada.appendChild(carousel);
-    document.body.appendChild(portada);
+    document.querySelector("main").appendChild(portada);
 
 
 
@@ -23,63 +23,90 @@ const EtiquetaParaCarousel = document.querySelector(".carousel");
     deslizamiento.classList.add("deslizamiento"); 
     EtiquetaParaCarousel.appendChild(deslizamiento);
 
+const FiltarYBuscar = document.createElement("div")
+    FiltarYBuscar.className="MenuDeFiltrarYBuscar";
+    FiltarYBuscar.id="MenuDeFiltrarYBuscar";
 
 
-// Creo selec para los filtros
-const inputFiltro = document.createElement("select");
-    inputFiltro.id = "input-filtro";
+    // Creo selec para los filtros
+    const SelecYBoton =document.createElement("div");
+        SelecYBoton.className ="JuntarSelectYBoton";
 
-// OPCION 1
-const opcion1 = document.createElement("option");
-    opcion1.value = "todos";
-    opcion1.innerText = "Todos";
+        const TituloCategoria=document.createElement("h3")
+            TituloCategoria.className="ElegirCategoria";
+            TituloCategoria.innerText="Categoria: "
 
-// OPCION 2
-const opcion2 = document.createElement("option");
-    opcion2.value = "trajes de banio";
-    opcion2.innerText = "Trajes de baño";
+        const inputFiltro = document.createElement("select");
+            inputFiltro.className ="input-filtro";
+            inputFiltro.id = "inputfiltro";
 
-// OPCION 3
-const opcion3 = document.createElement("option");
-    opcion3.value = "conjuntos deportivos";
-    opcion3.innerText = "Conjuntos deportivos";
+            // OPCION 1
+            const opcion1 = document.createElement("option");
+                opcion1.value = "todos";
+                opcion1.innerText = "Todos";
 
-// OPCION 4
-const opcion4 = document.createElement("option");
-    opcion4.value = "sweaters";
-    opcion4.innerText = "Sweaters";
+            // OPCION 2
+            const opcion2 = document.createElement("option");
+                opcion2.value = "trajes de baño";
+                opcion2.innerText = "Trajes de baño";
 
-    // AGREGAR OPCIONES AL SELECT
-    inputFiltro.appendChild(opcion1);
-    inputFiltro.appendChild(opcion2);
-    inputFiltro.appendChild(opcion3);
-    inputFiltro.appendChild(opcion4);
-    document.body.appendChild(inputFiltro);
+            // OPCION 3
+            const opcion3 = document.createElement("option");
+                opcion3.value = "conjuntos deportivos";
+                opcion3.innerText = "Conjuntos deportivos";
 
-// Creo boton filtrar el select
-const btnFiltrar = document.createElement("button");
+            // OPCION 4
+            const opcion4 = document.createElement("option");
+                opcion4.value = "sweaters";
+                opcion4.innerText = "Sweaters";
 
-    btnFiltrar.id = "btn-filtrar";
-    btnFiltrar.innerText = "Filtrar";
-    document.body.appendChild(btnFiltrar);
+                // AGREGAR OPCIONES AL SELECT
+                inputFiltro.appendChild(opcion1);
+                inputFiltro.appendChild(opcion2);
+                inputFiltro.appendChild(opcion3);
+                inputFiltro.appendChild(opcion4);
+
+        // Creo boton filtrar el select
+        const btnFiltrar = document.createElement("button");
+
+            btnFiltrar.id = "btn-filtrar";
+            btnFiltrar.className="btn-filtrar";
+            btnFiltrar.innerText = "Filtrar";
 
 
+    //meter selec y botndentron del main
+    SelecYBoton.appendChild(TituloCategoria);
+    SelecYBoton.appendChild(inputFiltro);
+    SelecYBoton.appendChild(btnFiltrar);
+
+    FiltarYBuscar.appendChild(SelecYBoton);
+    // document.querySelector("main").appendChild(SelecYBoton);
 
 
+    const varLupaYBuscar = document.createElement("div")
+        varLupaYBuscar.className = "LupaYBuscar";
+
+        //placeholder de buscar
+        //imagen de lupa
+        const imgLupa = document.createElement("img");
+            imgLupa.src="imagenes/MenuPrincipal/lupa.svg"
+            imgLupa.className="Lupa"
+            imgLupa.id="idLupa"
+            imgLupa.alt="NO LUPA"
+
+        const inputBuscar = document.createElement("input"); 
+            inputBuscar.type = "text"; 
+            inputBuscar.id = "input-buscar"; 
+            inputBuscar.placeholder = "Nombre producto"; 
+            
+            //FiltarYBuscar.appendChild(inputBuscar);
+            varLupaYBuscar.appendChild(imgLupa);
+            varLupaYBuscar.appendChild(inputBuscar);
+
+            FiltarYBuscar.appendChild(varLupaYBuscar);
 
 
-const inputBuscar = document.createElement("input"); 
-    inputBuscar.type = "text"; 
-    inputBuscar.id = "input-buscar"; 
-    inputBuscar.placeholder = "Nombre producto"; 
-    document.body.appendChild(inputBuscar);
-
-//     // Creo boton filtrar el select
-// const btnBuscar = document.createElement("button");
-//     btnBuscar.id = "btn-buscar";
-//     btnBuscar.innerText = "Buscar";
-//     document.body.appendChild(btnBuscar);
-
+document.querySelector("main").appendChild(FiltarYBuscar);
 
 
 
@@ -88,15 +115,15 @@ const TituloNuestroCatalogo = document.createElement("h2");
 
     TituloNuestroCatalogo.classList.add("nuestro-catalogo");
     TituloNuestroCatalogo.innerText = "Nuestro catálogo";
-    document.body.appendChild(TituloNuestroCatalogo);
+    document.querySelector("main").appendChild(TituloNuestroCatalogo);
 
 
-// <div id="container" class="container"></div>
+// <div id="container" class="container"></div> contiene las card producto
 const container = document.createElement("div");
     
     container.id = "container";
     container.classList.add("container");
-    document.body.appendChild(container);
+    document.querySelector("main").appendChild(container);
 
 
 
@@ -105,7 +132,7 @@ const CrearTituloCarrito = document.createElement("h2");
     CrearTituloCarrito.innerText="Carrito"; 
     CrearTituloCarrito.id="titulo-carrito";   
     CrearTituloCarrito.classList.add("titulo-carrito");
-    document.body.appendChild(CrearTituloCarrito);
+    document.querySelector("main").appendChild(CrearTituloCarrito);
     // OCULTO AL INICIO
     CrearTituloCarrito.style.display = "none";
     
@@ -116,31 +143,52 @@ const carritoHTML = document.createElement("div");
 
     carritoHTML.id = "carrito";
     carritoHTML.classList.add("container");
-    document.body.appendChild(carritoHTML);
+    document.querySelector("main").appendChild(carritoHTML);
     
 
+
+
+/***Creo la barra de abajo del carrito con todos sus elementos internos**** */
+const BarraCarrito =document.createElement("div");
+    
+    BarraCarrito.id="BarraInfoCarrito";
+    BarraCarrito.classList.add("BarraInfoCarrito");
+
+
+    const PrecioTotal=document.createElement("h3");
+        PrecioTotal.classList.add("TextoBarraCarrito");
+        PrecioTotal.id = "PrecioFinal";
+
+    const CantProductos=document.createElement("h3");
+        CantProductos.classList.add("TextoBarraCarrito");
+        CantProductos.id = "CantidadTotalProductos";
+
+    const ComprarCarrito= document.createElement("button");
+        ComprarCarrito.id = "btn-comprar";
+        ComprarCarrito.classList.add("btn-generico");
+        ComprarCarrito.innerText="Comprar carrito";
+
 /* Creo boton limpiar carrito */
-const LimpiarCarrito= document.createElement("button");
-
-    LimpiarCarrito.id = "btn-limpiar";
-    LimpiarCarrito.classList.add("btn-generico");
-    LimpiarCarrito.innerText="Limpiar Carrito";
-    document.body.appendChild(LimpiarCarrito);
-    // OCULTO AL INICIO
-    LimpiarCarrito.style.display = "none";
-
+    const LimpiarCarrito= document.createElement("button");
+        LimpiarCarrito.id = "btn-limpiar";
+        LimpiarCarrito.classList.add("btn-generico");
+        LimpiarCarrito.innerText="Limpiar carrito";
+    //document.querySelector("main").appendChild(LimpiarCarrito);
    
 
+    BarraCarrito.appendChild(PrecioTotal);
+    BarraCarrito.appendChild(CantProductos);
+    BarraCarrito.appendChild(ComprarCarrito);   
+    BarraCarrito.appendChild(LimpiarCarrito);
+    
 
-// const controles = document.createElement("div");
-//     controles.classList.add("controles");
-//     document.body.appendChild(controles);
-//     controles.appendChild(LimpiarCarrito);
+    document.querySelector("main").appendChild(BarraCarrito);
+    BarraCarrito.style.display="none";
 
 
 
 
-
+   
 
 
 /******************************************
@@ -250,7 +298,12 @@ fetch("./data.json")
 function CrearCard(producto){
 
     const card=document.createElement("div");
-    card.className="card";
+    card.className="ProductoCard";
+
+    const imagen=document.createElement("img");
+    imagen.src=producto.imagen;
+    imagen.alt="NOIMG";
+    imagen.className="ImagenProducto";
 
     const nombre=document.createElement("h2");
     nombre.innerText=producto.nombre;
@@ -258,41 +311,60 @@ function CrearCard(producto){
     const precio=document.createElement("p");
     precio.innerText=`$${producto.precio}`;
 
-    const imagen=document.createElement("img");
-    imagen.src=producto.imagen;
-    imagen.alt="NOIMG";
-    imagen.className="imagen";
-
-    const selectTalle = document.createElement("select");
-
-        for(let talle in producto.talles){
-
-        const opcion = document.createElement("option");
-
-        opcion.value = talle;
-        opcion.innerText = talle.toUpperCase();
-
-        selectTalle.appendChild(opcion); 
-        //recorre automáticamente los talles del producto y crea las opciones del <select>. 
-    }
-
-    //boton agregar al carrito para HTML
-    const boton = document.createElement("button");
-    boton.innerText = "Agregar al carrito";
-    boton.className = "btn-generico";
-    boton.onclick = () => AgregarAlCarrito(producto.id, selectTalle.value);
-
-    card.appendChild(nombre);
-    card.appendChild(precio);
-    card.appendChild(imagen);
-    card.appendChild(selectTalle);
-    card.appendChild(boton);
     
-    const container = document.getElementById("container");
+    const TalleYComprar=document.createElement("div");
+    TalleYComprar.className="TalleYComprar";
 
-    if(container){
-        container.appendChild(card);
-    }
+
+        const selectTalle = document.createElement("select");
+            selectTalle.className="SeleccionarTalle";
+
+            for(let talle of producto.talles){
+
+            const opcion = document.createElement("option");
+
+            opcion.value = talle;
+            opcion.innerText = talle.toUpperCase();
+
+            selectTalle.appendChild(opcion); 
+            //recorre automáticamente los talles del producto y crea las opciones del <select>. 
+        }
+
+
+        const BotonComprar= document.createElement("button");
+        BotonComprar.className="btn-generico BotonComprar";
+        BotonComprar.innerText="Comprar";
+        BotonComprar.onclick = () => Comprar(producto.nombre, producto.categoria, selectTalle.value);
+
+
+        TalleYComprar.appendChild(selectTalle);
+        TalleYComprar.appendChild(BotonComprar);
+
+    
+    const BotonAgregarCarrito=document.createElement("div");
+    BotonAgregarCarrito.className="BotonAgregarCarrito";
+    //este div lo hago para el ccs, el contido va sobre la dercham, pero el boton ocupa todo el ancho
+   
+    //boton agregar al carrito para HTML
+        const boton = document.createElement("button");
+            boton.innerText = "Agregar al carrito";
+            boton.className = "btn-generico";
+            boton.onclick = () => AgregarAlCarrito(producto.id, selectTalle.value, producto.precio);
+
+        card.appendChild(imagen);
+        card.appendChild(nombre);
+        card.appendChild(precio);
+        card.appendChild(TalleYComprar);
+    
+        BotonAgregarCarrito.appendChild(boton);
+        card.appendChild(BotonAgregarCarrito);
+        //card.appendChild(boton);
+        
+        const container = document.getElementById("container");
+
+        if(container){
+            container.appendChild(card);
+        }
     //document.getElementById("container").appendChild(card);
 };
 
@@ -300,36 +372,90 @@ function CrearCard(producto){
 productos.forEach(el=>CrearCard(el));
 
 
-///******TODO RELACIONADO A AGREGAR AL CARRITO************************/
+function Comprar(NombreProducto,CategoriaProducto, TalleElegido){
+    
+    Swal.fire({
+    title: "Compra realizada con exito!",
+    text:`${NombreProducto} - Talle: ${TalleElegido.toUpperCase()}`,
+    icon: "success"
+    });
+}
+
+
+/******TODO RELACIONADO A AGREGAR AL CARRITO************************/
 
 let carrito;
+let contadorcantidad;
+let preciocarrito;
+
+
+
+//chatgpt
+function ActualizarBarraCarrito(){
+
+    PrecioTotal.textContent =
+        `Precio final: $${preciocarrito}`;
+
+    CantProductos.textContent =
+        `Cantidad de productos: ${contadorcantidad}`;
+
+    if(carrito.length > 0){
+        BarraCarrito.style.display = "flex";
+        document.getElementById("titulo-carrito").style.display = "flex";
+    }
+    else{
+        BarraCarrito.style.display = "none";
+        document.getElementById("titulo-carrito").style.display = "none";
+    }
+};
+
 
 let data = localStorage.getItem("carrito"); 
+let datacantidad =localStorage.getItem("contadorcantidad");
+let dataprecio= localStorage.getItem("preciocarrito"); 
 //Traé de la memoria del navegador el valor guardado con la clave ‘carrito’ y guardalo en la variable data
 
 if (data) {//si la data no esta vacia(habia algo en el carrito previamente), lo guarda en el carrito
     carrito = JSON.parse(data);//toma un string y lo convierte a un objeto oa array(le saca la bolda del freezer))
-} else {//si no hay data, creo un carrito vacio
+    contadorcantidad=JSON.parse(datacantidad); //el contador total de productos de todo el carrito
+    preciocarrito=JSON.parse(dataprecio);
+}
+else {//si no hay data, creo un carrito vacio
     carrito = [];
+    contadorcantidad=0;
+    preciocarrito=0;
 }
 
 
 
-function AgregarAlCarrito(idElegido,TalleElegido){
 
-    idElegido = Number(idElegido);
-    //idElegido =parseInt(idElegido);
+
+function AgregarAlCarrito(idElegido,TalleElegido,PrecioProducto){
+
+    contadorcantidad++;
+    preciocarrito = preciocarrito + PrecioProducto;
+    
+
+    // DivPrecioTotal.textContent = `$${preciocarrito}`;
+  
+//    BarraCarrito.appendChild(DivPrecioTotal);
+    
+   // PrecioTotal.textContent = `Precio final: $${preciocarrito}`;
+   // CantProductos.textContent = `Cantidad de productos: ${contadorcantidad}`;
+   ActualizarBarraCarrito();  
+  
+  
+   console.log(preciocarrito);
+    console.log(contadorcantidad);
+
+
     const productoFinal=productos.find(el=>el.id===idElegido); //Recorre el array productos.
   // Devuelve el primer elemento cuyo id coincide con idElegido.
   // Si no encuentra → devuelve undefined
 
-    //console.log(productoFinal) //todo el objeto con el id correspondiente
-
-    if(productoFinal){//pregunta si el producto esta adentro del catalogo
-            
-        const existeProducto = carrito.some(el => el.id === productoFinal.id && el.talle === TalleElegido);
+        const existeProductoEnCarrito = carrito.some(el => el.id === productoFinal.id && el.talle === TalleElegido);
        
-            if(existeProducto){
+            if(existeProductoEnCarrito){
                 //Recorre carrito y devuelve
                 //true → si algún elemento tiene ese id con ese talle
                 //false → si ninguno coincide
@@ -354,27 +480,35 @@ function AgregarAlCarrito(idElegido,TalleElegido){
             carrito.push({ ...productoFinal,talle: TalleElegido, cantidad: 1 });
                 //Agrega un nuevo producto al carrito en caso de que ese producto no estaba
                 //con una nueva propiedad "cantidad:1"
-            document.getElementById("btn-limpiar").style.display = "block"; //se hace visible el boton "limpiar carrito"
-        }   document.getElementById("titulo-carrito").style.display = "block"; //se hace visible el el titulo "carrito"
+            document.getElementById("BarraInfoCarrito").style.display = "flex"; //se hace visible el boton "limpiar carrito"
+        }   document.getElementById("titulo-carrito").style.display = "flex"; //se hace visible el el titulo "carrito"
         
         localStorage.setItem("carrito", JSON.stringify(carrito));//le pongo la bolsa para mandralo a frizeer
-            //alert("Agregaste correctamente " + productoFinal.nombre + " al carrito");
-        verCarrito();
-        console.log(carrito);
-    }
-    else{
-        alert("Ese producto no esta en tu catalogo");
-    };
+        localStorage.setItem("contadorcantidad", JSON.stringify(contadorcantidad));
+        localStorage.setItem("preciocarrito",JSON.stringify(preciocarrito)); 
+        
+        
+        Swal.fire({
+        title: "Exito!",
+        text: "Producto cargado al carrito",
+        icon: "success"
+        });
 
-   //console.log(productoFinal);
+        verCarrito();
+
+        // productoFinal.talles[TalleElegido]--; //le resto 1 al stock 
+    
 };
 
- //console.log(carrito);
-
-
+ 
 function crearCardCarrito(producto) {
     const card = document.createElement("div");
-    card.className = "card";
+    card.className = "ProductoCard";
+
+    const img = document.createElement("img");
+    img.src = producto.imagen;
+    img.alt = "NOIMG";
+    img.className = "ImagenProducto";
 
     const nombre = document.createElement("h2");
     nombre.innerText = producto.nombre;
@@ -382,13 +516,9 @@ function crearCardCarrito(producto) {
     const precio = document.createElement("p");
     precio.innerText = `$${producto.precio}`;
 
-    const img = document.createElement("img");
-    img.src = producto.imagen;
-    img.alt = "NOIMG";
-    img.className = "imagen";
 
     const talle = document.createElement("p");
-    talle.innerText = `Talle: ${producto.talle}`;
+    talle.innerText = `Talle: ${producto.talle.toUpperCase()}`;
 
     const cantidad = document.createElement("p");
     cantidad.innerText = `Cantidad: ${producto.cantidad}`;
@@ -396,35 +526,65 @@ function crearCardCarrito(producto) {
     const total = document.createElement("p");
     total.innerText = `Total: $${producto.precio * producto.cantidad}`;
 
-    // const boton = document.createElement("button");
-    // boton.innerText = "Agregar al carrito";
-    // boton.className = "btn-generico";
-    // boton.onclick = () => agregarAlCarrito(producto.id);
+    const btnEliminarProducto= document.createElement("button");
+    btnEliminarProducto.innerText="Eliminar producto";
+    btnEliminarProducto.className="btn-generico";
+    btnEliminarProducto.onclick=()=>EliminarProducto(card, producto);
 
+
+    
+    card.appendChild(img);
     card.appendChild(nombre);
     card.appendChild(precio);
-    card.appendChild(img);
     card.appendChild(talle);
     card.appendChild(cantidad);
     card.appendChild(total);
-    // card.appendChild(boton);
+    card.appendChild(btnEliminarProducto);
 
     document.getElementById("carrito").appendChild(card);
 };
 
-function verCarrito() {
-    if (carrito.length > 0) {//solo se ejecuta si el carrito tiene algo
-        document.getElementById("carrito").innerHTML = "";
-        carrito.forEach(el => crearCardCarrito(el));
-    };
+
+
+function EliminarProducto(card, producto){
+
+    if(producto.cantidad === 1){
+        console.log(carrito);
+        carrito = carrito.filter(el => !(el.id === producto.id && el.talle === producto.talle)); //creo un nuevo carrito sin ese elemento id ni talle     
+    }  
+    else{
+        producto.cantidad=producto.cantidad-1;
+    }
+   
+    contadorcantidad--;
+    preciocarrito=preciocarrito-producto.precio;
+    ActualizarBarraCarrito();
+
+    
+    localStorage.setItem("contadorcantidad", JSON.stringify(contadorcantidad));
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    localStorage.setItem("preciocarrito", JSON.stringify(preciocarrito));
+    
+    console.log(contadorcantidad);
+    console.log(preciocarrito);
+
+    verCarrito();
+    
 };
 
 
-//if(document.getElementById("carrito")){//"si existe un elemento HTML con id='carrito'"
- //  verCarrito();
-//}
 
- //creo en HTML <button id="btn-limpiar" class="btn-generico">Limpiar Carrito</button> -->
+
+function verCarrito() {
+    document.getElementById("carrito").innerHTML = "";
+    carrito.forEach(el => crearCardCarrito(el));
+    
+    if (carrito.length ===0){
+        document.getElementById("BarraInfoCarrito").style.display = "none";//se hace invisible el boton "Limpiar carrito"
+        document.getElementById("titulo-carrito").style.display = "none";//se hace invisible el titulo " carrito"
+    }    
+};
+
 
 
 
@@ -433,11 +593,18 @@ function VaciarCarrito(){
     if (carrito.length > 0) { 
         
         carrito=[];
+        contadorcantidad=0;
+        preciocarrito=0;
+        ActualizarBarraCarrito();
+
         localStorage.setItem("carrito", JSON.stringify(carrito));
+        localStorage.setItem("contadorcantidad", JSON.stringify(contadorcantidad));
+        localStorage.setItem("preciocarrito", JSON.stringify(preciocarrito));
        // alert("Se vacio el carrito correctamente!");
         document.getElementById("carrito").innerHTML="";//vacía visualmente el HTML.
 
-        document.getElementById("btn-limpiar").style.display = "none";//se hace invisible el boton "Limpiar carrito"
+        //despues de ejecutarse todo el vaciamiento, se invisibiliza el titutulo y boton
+        document.getElementById("BarraInfoCarrito").style.display = "none";//se hace invisible el boton "Limpiar carrito"
         document.getElementById("titulo-carrito").style.display = "none";//se hace invisible el titulo " carrito"
 
     } else {
@@ -489,7 +656,7 @@ const btnFiltrarProductos = document.getElementById("btn-filtrar");
 btnFiltrarProductos.addEventListener("click", () => {
 
     // Obtiene lo escrito en el input
-    const categoriaIngresada = document.getElementById("input-filtro").value;
+    const categoriaIngresada = document.getElementById("inputfiltro").value;
 
     // Ejecuta el filtro
     FiltrarProductos(categoriaIngresada);
@@ -497,7 +664,7 @@ btnFiltrarProductos.addEventListener("click", () => {
 
 
 
-
+/***Funcion buscar productos****** */
 
 
 function BuscarProductos(palabra){
@@ -547,7 +714,6 @@ function BuscarProductos(palabra){
 
 }
 
-
 const InputBuscarProductos = document.getElementById("input-buscar");
 InputBuscarProductos.addEventListener("input", () => {
     // Ejecuta el filtro
@@ -555,335 +721,4 @@ InputBuscarProductos.addEventListener("input", () => {
 });
 
 
-
-//localStorage.clear();
-
-// // // // // let cards = "";
-
-// // // // // const filtrados = productos.filter(
-// // // // //     producto => producto.categoria === categoriaActual
-// // // // // );
-
-// // // // // filtrados.forEach(el=>{
-
-// // // // //     cards += `
-// // // // //         <div class="card">
-// // // // //             <h2>${el.nombre}</h2>
-// // // // //             <p>$${el.precio}</p>
-// // // // //             <img src="${el.imagen}" alt="NOIMG" class="imagen">
-// // // // //         </div>
-// // // // //     `;
-// // // // // });
-
-// // // // // document.getElementById("container").innerHTML = cards;
-
-// // // // // let NuevaCard="";
-
-// // // // // const ProductosTrajesDeBanio = productos.filter(
-// // // // //     producto => producto.categoria === "trajesdebanio"
-// // // // // );
-
-// // // // // ProductosTrajesDeBanio.forEach(el=>{
-    
-// // // // //     NuevaCard =   NuevaCard + `
-// // // // //         <div class="card">
-// // // // //             <h2>${el.nombre}</h2>
-// // // // //             <p>${el.precio}</p>
-// // // // //             <img src="${el.imagen}" alt="NOIMG" class="imagen">
-// // // // //         </div>
-// // // // //     `
-// // // // // });
-
-// // // // // document.getElementById("container").innerHTML = NuevaCard;
-
-
-// // // // // let NuevaCard2="";
-
-// // // // // const ProductosConjuntosDepotivos = productos.filter(
-// // // // //     producto => producto.categoria === "conjuntosdeportivos"
-// // // // // );
-
-// // // // // ProductosConjuntosDepotivos.forEach(el=>{
-    
-// // // // //     NuevaCard2 =   NuevaCard2 + `
-// // // // //         <div class="card">
-// // // // //             <h2>${el.nombre}</h2>
-// // // // //             <p>${el.precio}</p>
-// // // // //             <img src="${el.imagen}" alt="NOIMG" class="imagen">
-// // // // //         </div>
-// // // // //     `
-// // // // // });
-
-// // // // // document.getElementById("conjuntosdeportivos").innerHTML = NuevaCard2;
-
-
-
-
-
-// /****************TODO LO RELACIONADO CON CATALOGO**************************/
-// function VerCatalogo(){
-    
-//     let opcion;
-//     do{
-//         opcion=prompt("Que procducto te gustaria ver? \n\n1)Trajes de baño\n2)Conjuntos deportivos\n3)Sweaters\n4)Accesorios.\n\nPara vover al menu principal presione 0.");
-
-//   
-// };
-
-//  
-// };
-
-// /******CREO CARD PARA CADA PRODUCTO*********************************/
-
-// function CrearCard(producto){
-
-//     const card=document.createElement("div");
-//     card.className="card";
-
-//     const nombre=document.createElement("h2");
-//     nombre.innerText=producto.nombre;
-
-//     const precio=document.createElement("p");
-//     precio.innerText=`$${producto.precio}`;
-
-//     const imagen=document.createElement("img");
-//     imagen.scr=producto.imagen;
-//     imagen.alt="NOIMG";
-//     imagen.className="imagen";
-
-//     card.appendChild(nombre);
-//     card.appendChild(precio);
-//     card.appendChild(imagen);
-// }
-
-
-
-// /******TODO RELACIONADO A AGREGAR AL CARRITO************************/
-
-// let carrito;
-
-// let data = localStorage.getItem("carrito"); 
-// //Traé de la memoria del navegador el valor guardado con la clave ‘carrito’ y guardalo en la variable data
-
-// if (data) {//si la data no esta vacia(habia algo en el carrito previamente), lo guarda en el carrito
-//     carrito = JSON.parse(data);//toma un string y lo convierte a un objeto oa array(le saca la bolda del freezer))
-// } else {//si no hay data, creo un carrito vacio
-//     carrito = [];
-// }
-
-
-//function AgregarAlCarrito(idElegido){
-
-// // //     let opcion;
-// // //     do{
-// // //         opcion=prompt("Que producto te gustaria agregar al carrito? \n\n1)Trajes de baño\n2)Conjuntos deportivos\n3)Sweaters\n4)Accesorios.\n\nPara vover al menu principal presione 0.");
-
-// // //         switch(opcion){
-// // //             case "0":
-// // //                 // no hacer nada, deja que el while termine
-// // //                 break;
-// // //             case "1":
-// // //                 CarritoTrajesDeBanio();
-// // //                 break;
-                
-// // //             case "2":
-// // //                 ConjunosDeportivos();
-// // //                 break;
-                
-// // //             case "3":
-// // //                 Sweaters();
-// // //                 break;
-                
-// // //             case "4":
-// // //                 Accesorios();
-// // //                 break;
-                
-// // //             default:
-// // //                 alert("Opcion no valida.");         
-// // //                 //le saque break para que no salga de este menu
-// // //         };
-// // //     }while(opcion!=="0");
-
-// // }
-
-// function CarritoTrajesDeBanio(){
-    
-//     let catalogo="";
-
-//     let trajes = productos.filter(p => p.categoria === "trajesdebanio");//filtra solo los prductos "traje de baño"
-
-//     trajes.forEach((el, indice)=>{ //con el forEach recorro cada objeto
-//         catalogo = catalogo + "\n"+ (indice+1) +") id:"+ el.id + el.nombre + "   $" + el.precio + "  talles disponbles:";
-//         if(el.talles.s>0){
-//             catalogo +=" s";
-//         };
-//         if(el.talles.m>0){
-//             catalogo +=" m";
-//         };
-//         if(el.talles.l>0){
-//             catalogo +=" l";
-//         }
-//     });
-
-//     let opcion =prompt("Elija el traje de baño:\n\n" + catalogo); // es string
-//     //console.log(typeof opcion);
-//     let idElegido= parseInt(opcion);//prompt() devuelve string, no número. Por eso hay que convertirlo
-//     console.log(idElegido);
-
-//     const tallesDisponibles = Object.keys(productoFinal.talles)
-//     .filter(t => productoFinal.talles[t] > 0);
-//     let talle = prompt("Talles disponibles: " + tallesDisponibles.join(", "));
-    
-    
-//     //=(prompt("Elija el talle: "));
-
- // const productoFinal=productos.find(el=>el.id===idElegido); //Recorre el array productos.
-//     // Devuelve el primer elemento cuyo id coincide con idElegido.
-//     // Si no encuentra → devuelve undefined
-    
-  //console.log(productoFinal) //todo el objeto con el id correspondiente
-//}
-     
-//     if(productoFinal){//pregunta si el producto esta adentro del catalogo
-        
-        
-//         if(carrito.some(el => el.id === productoFinal.id)){
-//             //Recorre carrito y devuelve
-//             //true → si algún elemento tiene ese id
-//             //false → si ninguno coincide
-//             //Es básicamente: “¿ya existe este producto en el carrito?”
-
-//             carrito = carrito.map(el => { 
-//                 if(el.id === productoFinal.id){
-//                     //si existe vuelvo a copiar todo el carrito en el carrito
-//                     //pero al objeto que existe(id guales) le suma en cantidad
-//                     return {
-//                         ...el,
-//                         cantidad: el.cantidad + 1,
-//                     };
-//                 } else {
-//                     //cuando esta copiando a todo el carrito, deja igual a los obajetos que no coincide
-//                     return el;
-//                 };
-//             });
-//         } else {
-//             carrito.push({ ...productoFinal, cantidad: 1 });
-//             //Agrega un nuevo producto al carrito en caso de que ese producto no estaba
-//             //con una nueva propiedad "cantidad:1"
-//         }
-
-//     }
-
-//     else{
-//         alert("Ese producto no esta en tu catalogo");
-//     }
-// };
-
-// /***CREO LAS CARD PARA MI CARRITO************************************* */
-// function CrearCardCarrito(producto){
-
-//     const card=document.createElement("div");
-//     card.className="card";
-
-//     const nombre=document.createElement("h2");
-//     nombre.innerText=producto.nombre;
-
-//     const precio=document.createElement("p");
-//     precio.innerText=`$${producto.precio}`;
-
-//     const imagen=document.createElement("img");
-//     imagen.src=producto.imagen;
-//     imagen.alt="NOIMG";
-//     imagen.className="imagen";
-
-//     const cantidad = document.createElement("p");
-//     cantidad.innerText = `Cantidad: ${producto.cantidad}`;
-
-//     const total = document.createElement("p");
-//     total.innerText = `Total: $${producto.precio * producto.cantidad}`;
-
-//     // const boton = document.createElement("button");
-//     // boton.innerText = "Agregar al carrito";
-//     // boton.className = "btn-generico";
-//     // boton.onclick = () => agregarAlCarrito(producto.id);
-
-//     card.appendChild(nombre);
-//     card.appendChild(precio);
-//     card.appendChild(imagen);
-//     card.appendChild(cantidad);
-//     card.appendChild(total);
-//     // card.appendChild(boton);
-
-//     document.getElementById("container-carrito").appendChild(card);
-// };
-
-
-
-// function VerCarrito(){
-//     if (carrito.length > 0) {
-//         let mensaje = "Estos son los productos de tu carrito:\n";
-
-//         carrito.forEach(el => {
-//             mensaje += "\nID: " + el.id + " / " + el.nombre + " - $" + el.precio + " - Cantidad: " + el.cantidad;
-//         });
-
-//         alert(mensaje);
-//     } else {
-//         alert("Carrito vacío");
-//     };
-// };
-
-
-// /******************************************************************* */
-
-// function VaciarCarrito(){
-//     if (carrito.length > 0) {
-//         let mensaje = "Estos son los productos de tu carrito:\n";
-        
-//         carrito=[];
-//         alert("Se vacio el carrito");
-
-//     } else {
-//         alert("El carrito esta vacío");
-//     };
-
-// }
-
-// function menu(){
-
-//     let opcion;
-//     do{
-//         opcion=prompt("Bienvenidos a Dulce Locura! Que desea realizar?\n\n1) Ver el Catalogo. \n2) Agregar productos al carrito.\n3) Ver Carrito.\n4) Vaciar Carrito.\n\nPara salir presione 0.");
-//         // promp sirve para mostrar en pantalla e ingresar un valor
-//         //alert solo muestra en pantalla
-//         switch(opcion){
-//             case "0":
-//                 alert("Gracias por visitarnos!");
-//                 break;
-            
-//             case "1":
-//                 VerCatalogo();
-//                 break;
-            
-//             case "2":
-//                 AgregarAlCarrito();
-//                 break;
-            
-//             case "3":
-//                 VerCarrito();
-//                 break;
-            
-//             case "4":
-//                 VaciarCarrito();
-//                 break;
-            
-//             default:
-//                 alert("Opcion no valida.")
-//                 break;                
-//         };
-
-//     }while(opcion!=="0")
-// };
-
-// menu();
 

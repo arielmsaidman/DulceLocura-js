@@ -1,47 +1,7 @@
-.container{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 2rem 0rem;
-}
- 
-.card{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 20rem;
-    width: 12rem;
-    border: solid 1px darkgray;
-    background-color: aliceblue;
-    padding: 0.5rem;
-    border-radius: 8px;
-    cursor: pointer;
-}
+/* main{
+  background-color: rgb(255, 255, 255)
+} */
 
-.card:hover{
-    transform: scale(1.05);
-}
-
-.imagen{
-    height: 8rem;
-    width: auto;
-}
-
-.btn-generico{
-    margin-top: 0.5rem;
-    padding: 0.5rem;
-    border-radius: 8px;
-    cursor: pointer;
-    background-color: burlywood;
-    transition: linear 0.2s;
-    border: none;
-}
-
-.btn-generico:hover{
-    background-color: blanchedalmond;
-    transition: linear 0.2s;
-}
 
 /***HEADER**************************************************************************************/
 header .titulo-principal {
@@ -72,6 +32,131 @@ header .yellow-bg li a:active {
   color: whitesmoke;
 }*/
 
+
+.ElegirCategoria{
+  font-size: 20px;
+}
+
+.MenuDeFiltrarYBuscar{
+  background-color: #C7C7C7;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem 1rem 2rem;
+  align-items: center;
+}
+
+/* para juntar el la opcion de categoria y el bonton filtro */
+.JuntarSelectYBoton{
+  display: flex;
+  gap: 0.5rem;   
+}
+ 
+.LupaYBuscar{
+  display: flex;
+  gap: 0.5rem;  
+}
+
+.Lupa{
+  padding-top: 5px;
+  width: auto;
+  height: 1.5rem;
+}
+
+
+/*****todo lo relacionado a las card de presentacion*****/
+.container{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem;
+    padding: 1rem 1rem;
+}
+ 
+ .ProductoCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+   
+    width: 100%;
+    padding: 0.3rem;
+
+    border: solid 1px black;
+    /* background-color: #ecf5fa; */
+    background-color: #F4FDFF;
+    cursor: pointer;
+
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.308);
+}
+
+.BotonAgregarCarrito{
+    width: 100%;
+    padding-right: 0.3rem;
+}
+
+.BotonComprar button{
+  width: 100%;
+    padding-right: 0.3rem;
+}
+
+.BotonAgregarCarrito button{
+    width: 100%;
+    padding-right: 0.3rem;
+}
+
+.ProductoCard:hover{
+    transform: scale(1.01);
+}
+
+.ProductoCard h2{
+    font-size: 18px;
+    font-weight: bold;
+    
+}
+
+.ImagenProducto{
+    height: auto;
+    width: 100%;
+    margin-bottom: 5px;
+    border: solid 1px black;
+    /*border-radius:8px; */
+}
+
+.TalleYComprar{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.BotonComprar{
+    flex: 1;
+}
+/* .BotonAgregarCarrito{
+  padding: ;
+} */
+/* .SeleccionarTalle{
+    marginpx;
+} */
+
+.btn-generico{
+    margin: 0.2rem 0.2rem;
+    padding: 0.2rem; 
+    border-radius: 3px;
+    cursor: pointer; 
+    background-color:#F6C4C1;
+    border: solid 1px #F3A5A3;
+    transition: linear 0.2s;
+    /* border: none; */
+    
+}
+
+.btn-generico:hover{
+    background-color: blanchedalmond;
+    transition: linear 0.2s;
+}
+
+
+
 /*** CAROUSEL************************/
  .carousel{
     width: 100%;
@@ -92,15 +177,65 @@ header .yellow-bg li a:active {
     flex-shrink: 0;
 }
 
-/****titulo nuestro catalogo******/
+/****titulo "nuestro catalogo"******/
 .nuestro-catalogo{
   background-color: #FEF157;
   padding: 10px;
+  padding-left: 2rem;
 }
 
-/* .controles{
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    margin: 20px;
-} */
+/*******Relacionado al carrito******************/
+.titulo-carrito{
+
+  background-color: #C7C7C7;
+  padding:1rem;
+  margin-top: 1rem;
+  padding-left: 6rem;
+}
+
+
+.BarraInfoCarrito{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  /* /width: 100%; */
+  /* box-sizing: border-box; */
+  background-color: #9e9e9e;
+  padding:  1rem 3rem;
+  margin: 2rem 9rem;
+  gap: 2rem;
+  border-radius: 10px;
+
+}
+
+.BarraInfoCarrito h3{
+font-size: 20px;
+align-items: center;
+margin: 0;
+}
+
+
+
+
+/*****MENU DEL FONDO *********************************************************************/
+.menu-abajo {
+  background-color: rgb(71, 72, 82);
+  padding: 30px 20px; /* mejor que solo bottom */
+  color: whitesmoke;
+  display: flex;
+  justify-content: space-around; /* más limpio */
+  align-items: flex-start; /* CLAVE */
+  flex-wrap: wrap; /* para responsive */
+  gap: 2rem;
+}
+.menu-abajo ul a {
+  color: whitesmoke;
+  text-decoration: none;
+}
+.menu-abajo ul li h4 {
+  margin-bottom: 10px;
+}
+.menu-abajo ul li a {
+  color: whitesmoke;
+  text-decoration: none;
+}
