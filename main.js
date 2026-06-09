@@ -4,6 +4,46 @@
 *******************************************/
 
 
+
+// let login = document.getElementById("login");
+
+// login.innerText="Registrarse";
+// login.classList="Logearse";
+// login.src="imagenes/MenuPrincipal/login.svg";
+
+let divlogin = document.getElementById("login");
+
+const login= document.createElement("button");
+    const img = document.createElement("img");
+    img.src = "imagenes/MenuPrincipal/login.svg";
+    img.width = 30;
+    const texto = document.createTextNode(" Registrarse");
+    login.classList.add("btn-generico");
+    login.id=("Logearse");
+    login.onclick=()=>Registrarse();
+
+
+
+    login.appendChild(img);
+    login.appendChild(texto);
+    //login.appendChild(onclick);
+    divlogin.appendChild(login);
+
+    
+
+
+
+    
+    // login.classList.add("btn-generic");
+    // //login.appendChild(carousel);
+    // document.querySelector("header").appendChild(login);
+
+
+
+
+
+
+
 const portada = document.createElement("section");
     portada.classList.add("portada");
 
@@ -167,6 +207,7 @@ const BarraCarrito =document.createElement("div");
         ComprarCarrito.id = "btn-comprar";
         ComprarCarrito.classList.add("btn-generico");
         ComprarCarrito.innerText="Comprar carrito";
+        ComprarCarrito.onclick =()=> ComprarCarritoBtn();
 
 /* Creo boton limpiar carrito */
     const LimpiarCarrito= document.createElement("button");
@@ -194,6 +235,40 @@ const BarraCarrito =document.createElement("div");
 /******************************************
           FIN ESTRUCTURA HTML
 *******************************************/
+
+let usuarioRegistrado = false;
+
+/**Boton de registrarse*/
+function Registrarse(){
+
+    Swal.fire({
+        title: "Ingrese su nombre",
+        input: "text",
+        inputPlaceholder: "Nombre",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonText: "Aceptar"
+    }).then((result) => {
+
+        if(result.isConfirmed && result.value){
+
+            usuarioRegistrado = true;
+
+            Swal.fire({
+            title: `¡Hola ${result.value}!`,
+            icon: "success"
+            });
+
+            const nombre = result.value;
+            const boton = document.getElementById("Logearse");
+            boton.innerHTML = `Bienvenido, ${nombre}`;
+            boton.onclick = null; // opcional: desactiva volver a registrarse
+        }
+    });
+}
+
+
+
 
 /***************************************
           ESTRUCTURA CAROUSEL
@@ -261,6 +336,12 @@ cargarCarousel();
 /***************************************
         FIN ESTRUCTURA CAROUSEL
  ****************************************/
+
+
+
+
+
+
 
 //*******Array donde se guardarán los productos*************************/
 const productos = [];
@@ -374,12 +455,44 @@ productos.forEach(el=>CrearCard(el));
 
 function Comprar(NombreProducto,CategoriaProducto, TalleElegido){
     
-    Swal.fire({
-    title: "Compra realizada con exito!",
-    text:`${NombreProducto} - Talle: ${TalleElegido.toUpperCase()}`,
-    icon: "success"
-    });
+    if(usuarioRegistrado){
+
+        Swal.fire({
+        title: "Compra realizada con exito!",
+        text:`${NombreProducto} - Talle: ${TalleElegido.toUpperCase()}`,
+        icon: "success"
+        });
+    }
+    else{
+        Swal.fire({
+            title: "Debes registrarte primero",
+            text: "Para realizar una compra necesitas registrarte.",
+            icon: "warning"
+        });
+
+    }
 }
+
+function ComprarCarritoBtn(){
+if(usuarioRegistrado){
+
+        Swal.fire({
+        title: "Compra realizada con exito!",
+        text:`Precio final: $${preciocarrito} - Cantidad de productos: ${contadorcantidad}`,
+        icon: "success"
+        });
+
+        VaciarCarrito();
+    }
+    else{
+        Swal.fire({
+            title: "Debes registrarte primero",
+            text: "Para realizar una compra necesitas registrarte.",
+            icon: "warning"
+        });
+
+    }
+};
 
 
 /******TODO RELACIONADO A AGREGAR AL CARRITO************************/

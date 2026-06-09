@@ -21,16 +21,14 @@ header ul {
   display: flex;
   gap: 20px;
 }
-/*header .yellow-bg {
-  background-color: #B8E6D0;
+
+.Logearse{
+  
 }
-header .yellow-bg li a:hover {
-  background-color: #FED06E;
-}
-header .yellow-bg li a:active {
-  background-color: #D99A91;
-  color: whitesmoke;
-}*/
+
+
+
+
 
 
 .ElegirCategoria{
