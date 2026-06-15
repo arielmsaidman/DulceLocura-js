@@ -1,213 +1,194 @@
-
-/******************************************
-          CREAR ESTRUCTURA HTML
-*******************************************/
-
-/***login en el header***/
-let divlogin = document.getElementById("login");
-
-const login= document.createElement("button");
-    const img = document.createElement("img");
-    img.src = "imagenes/MenuPrincipal/login.svg";
-    img.width = 30;
-    const texto = document.createTextNode(" Registrarse");
-    login.classList.add("btn-generico");
-    login.id=("Logearse");
-    login.onclick=()=>Registrarse();
-
-    login.appendChild(img);
-    login.appendChild(texto);
-    divlogin.appendChild(login);
-
-    
-
-const portada = document.createElement("section");
-    portada.classList.add("portada");
-
-// Crear el div del carousel
-const carousel = document.createElement("div");
-    
-    carousel.classList.add("carousel");
-    portada.appendChild(carousel);
-    document.querySelector("main").appendChild(portada);
-
-
-//CREO UN DIV CON CLASE DESLIZAMIENTO DENTRO DE CAROUSEL
-const EtiquetaParaCarousel = document.querySelector(".carousel");
-
-    const deslizamiento = document.createElement("div");
-    deslizamiento.classList.add("deslizamiento"); 
-    EtiquetaParaCarousel.appendChild(deslizamiento);
-
-/*Menu de busquedo y filtro*/
-const FiltarYBuscar = document.createElement("div")
-    FiltarYBuscar.className="MenuDeFiltrarYBuscar";
-    FiltarYBuscar.id="MenuDeFiltrarYBuscar";
-
-
-    // Creo selec para los filtros
-    const SelecYBoton =document.createElement("div");
-        SelecYBoton.className ="JuntarSelectYBoton";
-
-        const TituloCategoria=document.createElement("h3")
-            TituloCategoria.className="ElegirCategoria";
-            TituloCategoria.innerText="Categoria: "
-
-        const inputFiltro = document.createElement("select");
-            inputFiltro.className ="input-filtro";
-            inputFiltro.id = "inputfiltro";
-
-            // OPCION 1
-            const opcion1 = document.createElement("option");
-                opcion1.value = "todos";
-                opcion1.innerText = "Todos";
-
-            // OPCION 2
-            const opcion2 = document.createElement("option");
-                opcion2.value = "trajes de baño";
-                opcion2.innerText = "Trajes de baño";
-
-            // OPCION 3
-            const opcion3 = document.createElement("option");
-                opcion3.value = "conjuntos deportivos";
-                opcion3.innerText = "Conjuntos deportivos";
-
-            // OPCION 4
-            const opcion4 = document.createElement("option");
-                opcion4.value = "sweaters";
-                opcion4.innerText = "Sweaters";
-
-                // AGREGAR OPCIONES AL SELECT
-                inputFiltro.appendChild(opcion1);
-                inputFiltro.appendChild(opcion2);
-                inputFiltro.appendChild(opcion3);
-                inputFiltro.appendChild(opcion4);
-
-        // Creo boton filtrar el select
-        const btnFiltrar = document.createElement("button");
-
-            btnFiltrar.id = "btn-filtrar";
-            btnFiltrar.className="btn-filtrar";
-            btnFiltrar.innerText = "Filtrar";
-
-
-    //meter selec y botndentron del main
-    SelecYBoton.appendChild(TituloCategoria);
-    SelecYBoton.appendChild(inputFiltro);
-    SelecYBoton.appendChild(btnFiltrar);
-
-    FiltarYBuscar.appendChild(SelecYBoton);
-    // document.querySelector("main").appendChild(SelecYBoton);
-
-
-    const varLupaYBuscar = document.createElement("div")
-        varLupaYBuscar.className = "LupaYBuscar";
-
-        //placeholder de buscar
-        //imagen de lupa
-        const imgLupa = document.createElement("img");
-            imgLupa.src="imagenes/MenuPrincipal/lupa.svg"
-            imgLupa.className="Lupa"
-            imgLupa.id="idLupa"
-            imgLupa.alt="NO LUPA"
-
-        const inputBuscar = document.createElement("input"); 
-            inputBuscar.type = "text"; 
-            inputBuscar.id = "input-buscar"; 
-            inputBuscar.placeholder = "Nombre producto"; 
-            
-            //FiltarYBuscar.appendChild(inputBuscar);
-            varLupaYBuscar.appendChild(imgLupa);
-            varLupaYBuscar.appendChild(inputBuscar);
-
-            FiltarYBuscar.appendChild(varLupaYBuscar);
-
-
-document.querySelector("main").appendChild(FiltarYBuscar);
-
-
-//creo el titulo h2 "Nuestro Catalogo"
-const TituloNuestroCatalogo = document.createElement("h2");
-
-    TituloNuestroCatalogo.classList.add("nuestro-catalogo");
-    TituloNuestroCatalogo.innerText = "Nuestro catálogo";
-    document.querySelector("main").appendChild(TituloNuestroCatalogo);
-
-
-//div que contiene las card producto
-const container = document.createElement("div");
-    
-    container.id = "container";
-    container.classList.add("container");
-    document.querySelector("main").appendChild(container);
-
-
-
-const CrearTituloCarrito = document.createElement("h2");
-
-    CrearTituloCarrito.innerText="Carrito"; 
-    CrearTituloCarrito.id="titulo-carrito";   
-    CrearTituloCarrito.classList.add("titulo-carrito");
-    document.querySelector("main").appendChild(CrearTituloCarrito);
-    
-    // OCULTO AL INICIO
-    CrearTituloCarrito.style.display = "none";
-    
-/***creo la etiqueta para cada card del carrito*************/
-const carritoHTML = document.createElement("div");
-
-    carritoHTML.id = "carrito";
-    carritoHTML.classList.add("container");
-    document.querySelector("main").appendChild(carritoHTML);
-    
-    
-/***Creo la barra de abajo del carrito con todos sus elementos internos**** */
-const BarraCarrito =document.createElement("div");
-    
-    BarraCarrito.id="BarraInfoCarrito";
-    BarraCarrito.classList.add("BarraInfoCarrito");
-
-
-    const PrecioTotal=document.createElement("h3");
-        PrecioTotal.classList.add("TextoBarraCarrito");
-        PrecioTotal.id = "PrecioFinal";
-
-    const CantProductos=document.createElement("h3");
-        CantProductos.classList.add("TextoBarraCarrito");
-        CantProductos.id = "CantidadTotalProductos";
-
-    const ComprarCarrito= document.createElement("button");
-        ComprarCarrito.id = "btn-comprar";
-        ComprarCarrito.classList.add("btn-generico");
-        ComprarCarrito.innerText="Comprar carrito";
-        ComprarCarrito.onclick =()=> ComprarCarritoBtn();
-
-    /* Creo boton limpiar carrito */
-    const LimpiarCarrito= document.createElement("button");
-        LimpiarCarrito.id = "btn-limpiar";
-        LimpiarCarrito.classList.add("btn-generico");
-        LimpiarCarrito.innerText="Limpiar carrito";
-      
-
-    BarraCarrito.appendChild(PrecioTotal);
-    BarraCarrito.appendChild(CantProductos);
-    BarraCarrito.appendChild(ComprarCarrito);   
-    BarraCarrito.appendChild(LimpiarCarrito);
-    
-
-    document.querySelector("main").appendChild(BarraCarrito);
-    BarraCarrito.style.display="none";
-
-
-/******************************************
-          FIN ESTRUCTURA HTML
-*******************************************/
-
+/****************************************************************
+          ESTADO GLOBAL Y CONFIGURACIÓN INICIAL
+*****************************************************************/
 let usuarioRegistrado = false;
+const productos = [];
+const imagenesCarousel = [];
+let indiceCarousel = 0;
 
-/****Boton de registrarse en el header***/
-function Registrarse(){
+// Cargar datos iniciales de LocalStorage o inicializar por defecto
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+let contadorCantidad = JSON.parse(localStorage.getItem("contadorcantidad")) || 0;
+let precioCarrito = JSON.parse(localStorage.getItem("preciocarrito")) || 0;
 
+/****************************************************************
+          CREACIÓN DE LA ESTRUCTURA HTML (DOM)
+*****************************************************************/
+const main = document.querySelector("main");
+
+// 1. Botón de Login en el Header
+const divLogin = document.getElementById("login");
+const loginBtn = document.createElement("button");
+const loginImg = document.createElement("img");
+
+loginImg.src = "imagenes/MenuPrincipal/login.svg";
+loginImg.width = 30;
+
+loginBtn.id = "Logearse";
+loginBtn.className = "btn-generico";
+loginBtn.appendChild(loginImg);
+loginBtn.appendChild(document.createTextNode(" Registrarse"));
+loginBtn.onclick = registrarse;
+divLogin.appendChild(loginBtn)
+
+// 2. Portada y Carousel
+const portada = document.createElement("section");
+portada.className = "portada";
+
+const carousel = document.createElement("div");
+carousel.className = "carousel";
+
+const deslizamiento = document.createElement("div");
+deslizamiento.className = "deslizamiento";
+
+carousel.appendChild(deslizamiento);
+portada.appendChild(carousel);
+main.appendChild(portada);
+
+// 3. Menú de Búsqueda y Filtro
+const filtrarYBuscar = document.createElement("div");
+filtrarYBuscar.id = "MenuDeFiltrarYBuscar";
+filtrarYBuscar.className = "MenuDeFiltrarYBuscar";
+
+const selectYBoton = document.createElement("div");
+selectYBoton.className = "JuntarSelectYBoton";
+
+const tituloCategoria = document.createElement("h3");
+tituloCategoria.className = "ElegirCategoria";
+tituloCategoria.innerText = "Categoría: ";
+
+const inputFiltro = document.createElement("select");
+inputFiltro.id = "inputfiltro";
+inputFiltro.className = "input-filtro";
+
+// Generación dinámica de opciones del filtro
+const opcionesFiltro = [
+    { value: "todos", text: "Todos" },
+    { value: "trajes de baño", text: "Trajes de baño" },
+    { value: "conjuntos deportivos", text: "Conjuntos deportivos" },
+    { value: "sweaters", text: "Sweaters" }
+];
+
+opcionesFiltro.forEach(opc => {
+    const opt = document.createElement("option");
+    opt.value = opc.value;
+    opt.innerText = opc.text;
+    inputFiltro.appendChild(opt);
+});
+
+const btnFiltrar = document.createElement("button");
+btnFiltrar.id = "btn-filtrar";
+btnFiltrar.className = "btn-filtrar";
+btnFiltrar.innerText = "Filtrar";
+
+selectYBoton.appendChild(tituloCategoria);
+selectYBoton.appendChild(inputFiltro);
+selectYBoton.appendChild(btnFiltrar);
+filtrarYBuscar.appendChild(selectYBoton);
+
+// Buscador (Lupa e Input)
+const lupaYBuscar = document.createElement("div");
+lupaYBuscar.className = "LupaYBuscar";
+
+const imgLupa = document.createElement("img");
+imgLupa.src = "imagenes/MenuPrincipal/lupa.svg";
+imgLupa.className = "Lupa";
+imgLupa.id = "idLupa";
+imgLupa.alt = "NO LUPA";
+
+const inputBuscar = document.createElement("input");
+inputBuscar.type = "text";
+inputBuscar.id = "input-buscar";
+inputBuscar.placeholder = "Nombre producto";
+
+lupaYBuscar.appendChild(imgLupa);
+lupaYBuscar.appendChild(inputBuscar);
+filtrarYBuscar.appendChild(lupaYBuscar);
+main.appendChild(filtrarYBuscar);
+
+
+
+
+
+
+// 4. Catálogo de Productos y boton de ir al carrito
+const tituloYBoton= document.createElement("div");
+tituloYBoton.className="titulo-y-boton"
+
+const tituloCatalogo = document.createElement("h2");
+tituloCatalogo.className = "nuestro-catalogo";
+tituloCatalogo.innerText = "Nuestro catálogo";
+
+const btnIrCarrito =document.createElement("button");
+btnIrCarrito.className="btn-generico";
+btnIrCarrito.innerText="Ir al carrito";
+tituloYBoton.id="IrAlCarrito";
+btnIrCarrito.style.display = "none";
+
+tituloYBoton.appendChild(tituloCatalogo);
+tituloYBoton.appendChild(btnIrCarrito);
+main.appendChild(tituloYBoton);
+
+
+
+
+const container = document.createElement("div");
+container.id = "container";
+container.className = "container";
+main.appendChild(container);
+
+// 5. Estructura del Carrito
+const tituloCarrito = document.createElement("h2");
+tituloCarrito.id = "titulo-carrito";
+tituloCarrito.className = "titulo-carrito";
+tituloCarrito.innerText = "Carrito";
+
+
+
+
+main.appendChild(tituloCarrito);
+
+const carritoHTML = document.createElement("div");
+carritoHTML.id = "carrito";
+carritoHTML.className = "container";
+main.appendChild(carritoHTML);
+
+// 6. Barra de Información del Carrito
+const barraCarrito = document.createElement("div");
+barraCarrito.id = "BarraInfoCarrito";
+barraCarrito.className = "BarraInfoCarrito";
+barraCarrito.style.display = "none";
+
+const precioTotalTexto = document.createElement("h3");
+precioTotalTexto.id = "PrecioFinal";
+precioTotalTexto.className = "TextoBarraCarrito";
+
+const cantProductosTexto = document.createElement("h3");
+cantProductosTexto.id = "CantidadTotalProductos";
+cantProductosTexto.className = "TextoBarraCarrito";
+
+const btnComprarCarrito = document.createElement("button");
+btnComprarCarrito.id = "btn-comprar";
+btnComprarCarrito.className = "btn-generico";
+btnComprarCarrito.innerText = "Comprar carrito";
+btnComprarCarrito.onclick = comprarCarritoBtn;
+
+const btnLimpiarCarrito = document.createElement("button");
+btnLimpiarCarrito.id = "btn-limpiar";
+btnLimpiarCarrito.className = "btn-generico";
+btnLimpiarCarrito.innerText = "Limpiar carrito";
+btnLimpiarCarrito.onclick = vaciarCarrito;
+
+barraCarrito.appendChild(precioTotalTexto);
+barraCarrito.appendChild(cantProductosTexto);
+barraCarrito.appendChild(btnComprarCarrito);
+barraCarrito.appendChild(btnLimpiarCarrito);
+main.appendChild(barraCarrito);
+
+/****************************************************************
+          LÓGICA DE USUARIOS Y REGISTRO
+*****************************************************************/
+function registrarse() {
     Swal.fire({
         title: "Ingrese su nombre",
         input: "text",
@@ -216,353 +197,88 @@ function Registrarse(){
         showCancelButton: true,
         confirmButtonText: "Aceptar"
     }).then((result) => {
-
-        if(result.isConfirmed && result.value){
-
+        if (result.isConfirmed && result.value) {
             usuarioRegistrado = true;
+            const nombre = result.value;
 
             Swal.fire({
-            title: `¡Hola ${result.value}!`,
-            icon: "success"
+                title: `¡Hola ${nombre}!`,
+                icon: "success",
+                showConfirmButton: false,
+                timer: 1000
             });
 
-            const nombre = result.value;
             const boton = document.getElementById("Logearse");
             boton.innerHTML = `Bienvenido, ${nombre}`;
-            boton.onclick = null; // opcional: desactiva volver a registrarse
+            boton.onclick = null;
         }
     });
 }
 
 
-/***************************************
-          ESTRUCTURA CAROUSEL
- ****************************************/
-const ImagenesCarousel = [];
-let indice = 0;
-
-
-// FUNCION ASYNC
-async function cargarCarousel(){
-    //espera la carga del JSON desde fetch
-
-    try{
-
-        const response = await fetch("./carousel.json");//Array donde se guardarán las fotos
-        //espera la respuesta antes de seguir.
-
+/****************************************************************
+          CAROUSEL
+*****************************************************************/
+async function cargarCarousel() {
+    try {
+        const response = await fetch("./carousel.json");
         const data = await response.json();
 
-        // GUARDAR IMAGENES
         data.forEach(el => {
-
-            ImagenesCarousel.push(el.imagen);
-
+            imagenesCarousel.push(el.imagen);
         });
 
-        // Creo las imagenes y las paso al HTML
-        ImagenesCarousel.forEach(el => {
-
-            const imgagenesdeslizadas = document.createElement("img");
-            imgagenesdeslizadas.src = el;//Le asigno la imagen.
-            deslizamiento.appendChild(imgagenesdeslizadas);
+        imagenesCarousel.forEach(el => {
+            const img = document.createElement("img");
+            img.src = el;
+            deslizamiento.appendChild(img);
         });
 
-        // INICIAR CAROUSEL
         setInterval(cambiarImagen, 3000);
-
-    }
-
-    catch(error){
-
-        console.error(error);
-
+    } catch (error) {
+        console.error("Error al cargar el carousel:", error);
     }
 }
 
-// FUNCION CAMBIAR IMAGEN
-function cambiarImagen(){
-
-    indice++;
-
-    if(indice >= ImagenesCarousel.length){
-
-        indice = 0;
+function cambiarImagen() {
+    indiceCarousel++;
+    if (indiceCarousel >= imagenesCarousel.length) {
+        indiceCarousel = 0;
     }
-
-    deslizamiento.style.transform = `translateX(-${indice * 100}%)`;
-    //Mueve horizontalmente el div completo.
-    //si hubiera sido -100, mueve la pantalla hacia la izquierda
-
+    deslizamiento.style.transform = `translateX(-${indiceCarousel * 100}%)`;
 }
 
+// Inicializar carousel
 cargarCarousel();
 
-/***************************************
-        FIN ESTRUCTURA CAROUSEL
- ****************************************/
 
-
-
-
-
-
-
-//*******Array donde se guardarán los productos*************************/
-const productos = [];
-
-// Busca el archivo data.json
+/****************************************************************
+          CARGA DE PRODUCTOS (CATÁLOGO)
+*****************************************************************/
 fetch("./data.json")
-
-    // Convierte la respuesta a formato JSON
     .then(response => response.json())
-
-    // Cuando el JSON ya está cargado
     .then(data => {
-
-        // Limpia el contenedor para evitar duplicados
-        document.getElementById("container").innerHTML = "";
-
-        // Recorre cada producto del JSON
+        container.innerHTML = "";
         data.forEach(el => {
-
-            // Crea una card HTML para cada producto
-            CrearCard(el);
-
-            // Guarda el producto en el array productos
+            crearCard(el);
             productos.push(el);
         });
-
+        // Si hay elementos previos en el carrito guardados en LocalStorage, los dibuja al cargar la página
+        if (carrito.length > 0) {
+            verCarrito();
+            actualizarBarraCarrito();
+        }
     })
+    .catch(err => console.error("Error al cargar productos:", err));
 
-    // Si ocurre un error lo muestra en consola
-    .catch(err => console.error(err));
-
-
-/*Creo la card para cada producto*/    
-function CrearCard(producto){
-
-    const card=document.createElement("div");
-    card.className="ProductoCard";
-
-    const imagen=document.createElement("img");
-    imagen.src=producto.imagen;
-    imagen.alt="NOIMG";
-    imagen.className="ImagenProducto";
-
-    const nombre=document.createElement("h2");
-    nombre.innerText=producto.nombre;
-
-    const precio=document.createElement("p");
-    precio.innerText=`$${producto.precio}`;
-
-    
-    const TalleYComprar=document.createElement("div");
-    TalleYComprar.className="TalleYComprar";
-
-
-        const selectTalle = document.createElement("select");
-            selectTalle.className="SeleccionarTalle";
-
-            for(let talle of producto.talles){
-
-            const opcion = document.createElement("option");
-
-            opcion.value = talle;
-            opcion.innerText = talle.toUpperCase();
-
-            selectTalle.appendChild(opcion); 
-            //recorre automáticamente los talles del producto y crea las opciones del <select>. 
-        }
-
-
-        const BotonComprar= document.createElement("button");
-        BotonComprar.className="btn-generico BotonComprar";
-        BotonComprar.innerText="Comprar";
-        BotonComprar.onclick = () => Comprar(producto.nombre, producto.categoria, selectTalle.value);
-
-
-        TalleYComprar.appendChild(selectTalle);
-        TalleYComprar.appendChild(BotonComprar);
-
-    
-    const BotonAgregarCarrito=document.createElement("div");
-    BotonAgregarCarrito.className="BotonAgregarCarrito";
-
-    //boton agregar al carrito para HTML
-        const boton = document.createElement("button");
-            boton.innerText = "Agregar al carrito";
-            boton.className = "btn-generico";
-            boton.onclick = () => AgregarAlCarrito(producto.id, selectTalle.value, producto.precio);
-
-        card.appendChild(imagen);
-        card.appendChild(nombre);
-        card.appendChild(precio);
-        card.appendChild(TalleYComprar);
-    
-        BotonAgregarCarrito.appendChild(boton);
-        card.appendChild(BotonAgregarCarrito);
-        
-        
-        const container = document.getElementById("container");
-
-        if(container){
-            container.appendChild(card);
-        }
-    //document.getElementById("container").appendChild(card);
-};
-
-
-productos.forEach(el=>CrearCard(el));
-
-
-function Comprar(NombreProducto,CategoriaProducto, TalleElegido){
-    
-    if(usuarioRegistrado){
-
-        Swal.fire({
-        title: "Compra realizada con exito!",
-        text:`${NombreProducto} - Talle: ${TalleElegido.toUpperCase()}`,
-        icon: "success"
-        });
-    }
-    else{
-        Swal.fire({
-            title: "Debes registrarte primero",
-            text: "Para realizar una compra necesitas registrarte.",
-            icon: "warning"
-        });
-
-    }
-}
-
-function ComprarCarritoBtn(){
-if(usuarioRegistrado){
-
-        Swal.fire({
-        title: "Compra realizada con exito!",
-        text:`Precio final: $${preciocarrito} - Cantidad de productos: ${contadorcantidad}`,
-        icon: "success"
-        });
-
-        VaciarCarrito();
-    }
-    else{
-        Swal.fire({
-            title: "Debes registrarte primero",
-            text: "Para realizar una compra necesitas registrarte.",
-            icon: "warning"
-        });
-
-    }
-};
-
-
-/***********************************
-        AGREGAR AL CARRITO
-************************************/
-
-let carrito;
-let contadorcantidad;
-let preciocarrito;
-
-
-//chatgpt
-function ActualizarBarraCarrito(){
-
-    PrecioTotal.textContent =
-        `Precio final: $${preciocarrito}`;
-
-    CantProductos.textContent =
-        `Cantidad de productos: ${contadorcantidad}`;
-
-    if(carrito.length > 0){
-        BarraCarrito.style.display = "flex";
-        document.getElementById("titulo-carrito").style.display = "flex";
-    }
-    else{
-        BarraCarrito.style.display = "none";
-        document.getElementById("titulo-carrito").style.display = "none";
-    }
-};
-
-
-let data = localStorage.getItem("carrito"); 
-let datacantidad =localStorage.getItem("contadorcantidad");
-let dataprecio= localStorage.getItem("preciocarrito"); 
-//Traé de la memoria del navegador el valor guardado con la clave ‘carrito’ y guardalo en la variable data
-
-if (data) {//si la data no esta vacia(habia algo en el carrito previamente), lo guarda en el carrito
-    carrito = JSON.parse(data);//toma un string y lo convierte a un objeto oa array(le saca la bolda del freezer))
-    contadorcantidad=JSON.parse(datacantidad); //el contador total de productos de todo el carrito
-    preciocarrito=JSON.parse(dataprecio);
-}
-else {
-    carrito = [];
-    contadorcantidad=0;
-    preciocarrito=0;
-}
-
-function AgregarAlCarrito(idElegido,TalleElegido,PrecioProducto){
-
-    contadorcantidad++;
-    preciocarrito = preciocarrito + PrecioProducto;
-    
-    ActualizarBarraCarrito();  
-
-
-    const productoFinal=productos.find(el=>el.id===idElegido); //Recorre el array productos.
-  // Devuelve el primer elemento cuyo id coincide con idElegido, sino devuelve undefined
-  
-
-        const existeProductoEnCarrito = carrito.some(el => el.id === productoFinal.id && el.talle === TalleElegido);
-       
-            if(existeProductoEnCarrito){
-            //¿ya existe este producto en el carrito?
-
-                carrito = carrito.map(el => { 
-                
-                if(Number(el.id) === Number(productoFinal.id) && el.talle === TalleElegido){
-                        //si existe un producto con la misma id y mismo talle, primero vuelvo a copiar todo el carrito en el carrito
-                        //y despues al objeto que existe(id guales) le suma en cantidad
-                    return {
-                        ...el,
-                        cantidad: el.cantidad + 1,
-                        
-                    };
-                }else {
-                    //cuando esta copiando a todo el carrito, deja igual a los objetos que no coincide
-                return el;
-                }
-            });
-        } else {
-            carrito.push({ ...productoFinal,talle: TalleElegido, cantidad: 1 });
-                //Agrega un nuevo producto al carrito en caso de que ese producto no estaba, con una nueva propiedad "cantidad:1"
-            document.getElementById("BarraInfoCarrito").style.display = "flex"; //se hace visible el boton "limpiar carrito"
-        }   document.getElementById("titulo-carrito").style.display = "flex"; //se hace visible el el titulo "carrito"
-        
-        localStorage.setItem("carrito", JSON.stringify(carrito));//le pongo la bolsa para mandralo a frizeer
-        localStorage.setItem("contadorcantidad", JSON.stringify(contadorcantidad));
-        localStorage.setItem("preciocarrito",JSON.stringify(preciocarrito)); 
-        
-        Swal.fire({
-        title: "Exito!",
-        text: "Producto cargado al carrito",
-        icon: "success"
-        });
-
-        verCarrito();    
-};
-
- 
-function crearCardCarrito(producto) {
+function crearCard(producto) {
     const card = document.createElement("div");
     card.className = "ProductoCard";
 
-    const img = document.createElement("img");
-    img.src = producto.imagen;
-    img.alt = "NOIMG";
-    img.className = "ImagenProducto";
+    const imagen = document.createElement("img");
+    imagen.src = producto.imagen;
+    imagen.alt = "Imagen del producto";
+    imagen.className = "ImagenProducto";
 
     const nombre = document.createElement("h2");
     nombre.innerText = producto.nombre;
@@ -570,6 +286,209 @@ function crearCardCarrito(producto) {
     const precio = document.createElement("p");
     precio.innerText = `$${producto.precio}`;
 
+    const talleYComprar = document.createElement("div");
+    talleYComprar.className = "TalleYComprar";
+
+    const selectTalle = document.createElement("select");
+    selectTalle.className = "SeleccionarTalle";
+
+    producto.talles.forEach(talle => {
+        const opcion = document.createElement("option");
+        opcion.value = talle;
+        opcion.innerText = talle.toUpperCase();
+        selectTalle.appendChild(opcion);
+    });
+
+    const botonComprarDirecto = document.createElement("button");
+    botonComprarDirecto.className = "btn-generico BotonComprar";
+    botonComprarDirecto.innerText = "Comprar";
+    botonComprarDirecto.onclick = () => realizarCompraDirecta(producto.nombre, producto.categoria, selectTalle.value);
+
+    talleYComprar.appendChild(selectTalle);
+    talleYComprar.appendChild(botonComprarDirecto);
+
+    const divBotonAgregar = document.createElement("div");
+    divBotonAgregar.className = "BotonAgregarCarrito";
+
+    const botonAgregar = document.createElement("button");
+    botonAgregar.className = "btn-generico";
+    botonAgregar.innerText = "Agregar al carrito";
+    botonAgregar.onclick = () => agregarAlCarrito(producto.id, selectTalle.value, producto.precio);
+
+    divBotonAgregar.appendChild(botonAgregar);
+
+    card.appendChild(imagen);
+    card.appendChild(nombre);
+    card.appendChild(precio);
+    card.appendChild(talleYComprar);
+    card.appendChild(divBotonAgregar);
+
+    container.appendChild(card);
+}
+
+
+/****************************************************************
+          LÓGICA DE COMPRAS
+*****************************************************************/
+async function realizarCompraDirecta(nombreProducto, categoriaProducto, talleElegido) {
+
+    if (usuarioRegistrado === false) {
+        Swal.fire({
+            title: "Debes registrarte primero",
+            text: "Para realizar una compra necesitas registrarte.",
+            icon: "warning",
+            showConfirmButton: false,
+            timer: 1500
+        });
+        return;
+    }
+
+    const datosEnvio = await DireccionDelEnvio();
+
+    if (datosEnvio === false) return;
+
+    Swal.fire({
+        title: "¡Compra realizada con éxito!",
+        text: `${nombreProducto} - Talle: ${talleElegido.toUpperCase()}`,
+        icon: "success"
+    });
+}
+
+async function comprarCarritoBtn() {
+
+    if (usuarioRegistrado === false) {
+        Swal.fire({
+            title: "Debes registrarte primero",
+            text: "Para realizar una compra necesitas registrarte.",
+            icon: "warning",
+            showConfirmButton: false,
+            timer: 1500
+        });
+        return;
+    }
+
+    const datosEnvio = await DireccionDelEnvio();
+
+    if (datosEnvio === false) return;
+
+    Swal.fire({
+        title: "¡Compra realizada con éxito!",
+        text: `Precio final: $${precioCarrito} - Cantidad de productos: ${contadorCantidad}`,
+        icon: "success"
+    });
+
+    vaciarCarrito();
+}
+
+async function DireccionDelEnvio() {
+
+    const result = await Swal.fire({
+        title: "Datos de envío",
+        html: `
+            <input id="nombre" class="swal2-input" placeholder="Nombre">
+            <input id="direccion" class="swal2-input" placeholder="Dirección">
+            <input id="ciudad" class="swal2-input" placeholder="Ciudad">
+            <input id="telefono" class="swal2-input" placeholder="Teléfono">
+        `,
+        showCancelButton: true,
+        confirmButtonText: "Confirmar pedido",
+        cancelButtonText: "Cancelar",
+        preConfirm: () => {
+            return {
+                nombre: document.getElementById("nombre").value,
+                direccion: document.getElementById("direccion").value,
+                ciudad: document.getElementById("ciudad").value,
+                telefono: document.getElementById("telefono").value
+            };
+        }
+    });
+
+    if (result.isConfirmed === false) return null;
+
+    return result.value;
+}
+
+/****************************************************************
+          GESTIÓN DEL CARRITO
+*****************************************************************/
+
+const IrAlCarritobtn = document.getElementById("IrAlCarrito");
+    IrAlCarritobtn.onclick = () => {
+    document.getElementById("titulo-carrito").scrollIntoView({
+        behavior: "smooth"
+        });
+        
+};
+
+function actualizarBarraCarrito() {
+    precioTotalTexto.textContent = `Precio final: $${precioCarrito}`;
+    cantProductosTexto.textContent = `Cantidad de productos: ${contadorCantidad}`;
+
+    if (carrito.length > 0) {
+        barraCarrito.style.display = "flex";
+        tituloCarrito.style.display = "flex";
+        btnIrCarrito.style.display = "block";
+    } else {
+        barraCarrito.style.display = "none";
+        tituloCarrito.style.display = "none";
+        btnIrCarrito.style.display = "none";
+    }
+}
+
+function agregarAlCarrito(idElegido, talleElegido, precioProducto) {
+    contadorCantidad++;
+    precioCarrito += precioProducto;
+
+    const productoFinal = productos.find(el => el.id === idElegido);
+    if (!productoFinal) return;
+
+    const existeProductoEnCarrito = carrito.some(el => el.id === productoFinal.id && el.talle === talleElegido);
+
+    if (existeProductoEnCarrito) {
+        carrito = carrito.map(el => {
+            if (Number(el.id) === Number(productoFinal.id) && el.talle === talleElegido) {
+                return { ...el, cantidad: el.cantidad + 1 };
+            }
+            return el;
+        });
+    } else {
+        carrito.push({ ...productoFinal, talle: talleElegido, cantidad: 1 });
+    }
+
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    localStorage.setItem("contadorcantidad", JSON.stringify(contadorCantidad));
+    localStorage.setItem("preciocarrito", JSON.stringify(precioCarrito));
+
+    Toastify({
+    text: "Producto agregado al carrito",
+    duration: 3000, // 3 segundos
+    close: true,    // botón para cerrar
+    gravity: "bottom", // top o bottom
+    position: "center", // left, center o right
+    stopOnFocus: true,
+    style: {
+        background: "linear-gradient(to right, #ad8398, #aa9fac)",
+    }
+    }).showToast();
+
+    actualizarBarraCarrito();
+    verCarrito();
+}
+
+function crearCardCarrito(producto) {
+    const card = document.createElement("div");
+    card.className = "ProductoCard";
+
+    const img = document.createElement("img");
+    img.src = producto.imagen;
+    img.alt = "Imagen del producto en carrito";
+    img.className = "ImagenProducto";
+
+    const nombre = document.createElement("h2");
+    nombre.innerText = producto.nombre;
+
+    const precio = document.createElement("p");
+    precio.innerText = `$${producto.precio}`;
 
     const talle = document.createElement("p");
     talle.innerText = `Talle: ${producto.talle.toUpperCase()}`;
@@ -580,11 +499,12 @@ function crearCardCarrito(producto) {
     const total = document.createElement("p");
     total.innerText = `Total: $${producto.precio * producto.cantidad}`;
 
-    const btnEliminarProducto= document.createElement("button");
-    btnEliminarProducto.innerText="Eliminar producto";
-    btnEliminarProducto.className="btn-generico";
-    btnEliminarProducto.onclick=()=>EliminarProducto(card, producto);
-    
+    const btnEliminarProducto = document.createElement("button");
+    btnEliminarProducto.innerText = "Remover una unidad";
+    btnEliminarProducto.className = "btn-generico";
+    btnEliminarProducto.onclick = () => eliminarProducto(card, producto);
+    btnEliminarProducto.style.width= "95%";
+
     card.appendChild(img);
     card.appendChild(nombre);
     card.appendChild(precio);
@@ -593,165 +513,118 @@ function crearCardCarrito(producto) {
     card.appendChild(total);
     card.appendChild(btnEliminarProducto);
 
-    document.getElementById("carrito").appendChild(card);
-};
+    carritoHTML.appendChild(card);
+}
 
-
-
-function EliminarProducto(card, producto){
-
-    if(producto.cantidad === 1){
-        console.log(carrito);
-        carrito = carrito.filter(el => !(el.id === producto.id && el.talle === producto.talle));      
-        //creo un nuevo carrito sin ese elemento id ni talle
-    }  
-    else{
-        producto.cantidad=producto.cantidad-1;
+function eliminarProducto(card, producto) {
+    if (producto.cantidad === 1) {
+        carrito = carrito.filter(el => !(el.id === producto.id && el.talle === producto.talle));
+    } else {
+        producto.cantidad -= 1;
     }
-   
-    contadorcantidad--;
-    preciocarrito=preciocarrito-producto.precio;
-    ActualizarBarraCarrito();
 
-    localStorage.setItem("contadorcantidad", JSON.stringify(contadorcantidad));
+    contadorCantidad--;
+    precioCarrito -= producto.precio;
+    actualizarBarraCarrito();
+
+    Toastify({
+    text: "Producto eliminado del carrito",
+    duration: 3000, // 3 segundos
+    close: true,    // botón para cerrar
+    gravity: "bottom", // top o bottom
+    position: "center", // left, center o right
+    stopOnFocus: true,
+    style: {
+        background: "linear-gradient(to right, #ad8398, #aa9fac)",
+    }
+    }).showToast();
+
+    localStorage.setItem("contadorcantidad", JSON.stringify(contadorCantidad));
     localStorage.setItem("carrito", JSON.stringify(carrito));
-    localStorage.setItem("preciocarrito", JSON.stringify(preciocarrito));
-    
-    console.log(contadorcantidad);
-    console.log(preciocarrito);
+    localStorage.setItem("preciocarrito", JSON.stringify(precioCarrito));
 
     verCarrito();
-};
+}
 
 function verCarrito() {
-    document.getElementById("carrito").innerHTML = "";
+    carritoHTML.innerHTML = "";
     carrito.forEach(el => crearCardCarrito(el));
-    
-    if (carrito.length ===0){
-        document.getElementById("BarraInfoCarrito").style.display = "none";//se hace invisible el boton "Limpiar carrito"
-        document.getElementById("titulo-carrito").style.display = "none";//se hace invisible el titulo " carrito"
-    }    
-};
 
-function VaciarCarrito(){
-   
-    carrito=[];
-    contadorcantidad=0;
-    preciocarrito=0;
-    ActualizarBarraCarrito();
+    if (carrito.length === 0) {
+        barraCarrito.style.display = "none";
+        tituloCarrito.style.display = "none";
+    }
+}
+
+function vaciarCarrito() {
+    carrito = [];
+    contadorCantidad = 0;
+    precioCarrito = 0;
+    
+    actualizarBarraCarrito();
 
     localStorage.setItem("carrito", JSON.stringify(carrito));
-    localStorage.setItem("contadorcantidad", JSON.stringify(contadorcantidad));
-    localStorage.setItem("preciocarrito", JSON.stringify(preciocarrito));
-     
-    document.getElementById("carrito").innerHTML="";//vacía visualmente el HTML.
+    localStorage.setItem("contadorcantidad", JSON.stringify(contadorCantidad));
+    localStorage.setItem("preciocarrito", JSON.stringify(precioCarrito));
 
-        //despues de ejecutarse todo el vaciamiento, se invisibiliza el titutulo y boton
-    document.getElementById("BarraInfoCarrito").style.display = "none";//se hace invisible el boton "Limpiar carrito"
-    document.getElementById("titulo-carrito").style.display = "none";//se hace invisible el titulo " carrito"
-
-};
-
-    //Boton vaciar carrito
-const btnLimpiarCarrito = document.getElementById("btn-limpiar");
-btnLimpiarCarrito.onclick=()=>VaciarCarrito();
+    carritoHTML.innerHTML = "";
+}
 
 
+/****************************************************************
+          FILTROS Y BÚSQUEDA DE PRODUCTOS
+*****************************************************************/
+function filtrarProductos(categoria) {
+    container.innerHTML = "";
 
-/**********************************************
-    TODO RELACIONADO A FILTRAR PRODUCTOS
-***********************************************/
-function FiltrarProductos(categoria){
-   
-    // Limpia el container, por si habia algo, se pudo haber ejecutado anteriormente
-    document.getElementById("container").innerHTML = "";
-
-    // SI ELIGE "todo"
-    if(categoria === "todos"){
-
-        productos.forEach(producto => {
-            CrearCard(producto);
-        });
-
+    if (categoria === "todos") {
+        productos.forEach(producto => crearCard(producto));
         return;
     }
 
-    const ProductosFiltrados = productos.filter(
-    producto => producto.categoria === categoria
+    const productosFiltrados = productos.filter(
+        producto => producto.categoria === categoria
     );
 
-    // Renderiza los productos filtrados
-    ProductosFiltrados.forEach(producto => {
-        CrearCard(producto);
-    });
-
+    productosFiltrados.forEach(producto => crearCard(producto));
 }
 
-//Boton filtrar productos
-const btnFiltrarProductos = document.getElementById("btn-filtrar");
-btnFiltrarProductos.addEventListener("click", () => {
-
-    // Obtiene lo escrito en el input
-    const categoriaIngresada = document.getElementById("inputfiltro").value;
-
-    // Ejecuta el filtro
-    FiltrarProductos(categoriaIngresada);
+// Evento del botón Filtrar
+btnFiltrar.addEventListener("click", () => {
+    const categoriaIngresada = inputFiltro.value;
+    filtrarProductos(categoriaIngresada);
 });
 
-
-
-/********************************
-    FUNCION BUSCAR PRODUCTOS
-*********************************/
-function BuscarProductos(palabra){
-   
-    // Limpia el container, por si habia algo, se pudo haber ejecutado anteriormente
-    document.getElementById("container").innerHTML = "";
-
-   // PASAR A MINUSCULA
+// Función de Búsqueda por palabra clave
+function buscarProductos(palabra) {
+    container.innerHTML = "";
     palabra = palabra.toLowerCase();
 
-
-    // si esta vacio el placeholedr, muestra todo el catalogo
-    if(palabra === ""){
-
-        productos.forEach(producto => {CrearCard(producto);});
+    if (palabra === "") {
+        productos.forEach(producto => crearCard(producto));
         return;
     }
 
-
-    const ProductosBuscados = productos.filter(producto =>
-        producto.nombre.toLowerCase().includes(palabra)
-        ||
+    const productosBuscados = productos.filter(producto =>
+        producto.nombre.toLowerCase().includes(palabra) ||
         producto.categoria.toLowerCase().includes(palabra)
     );
-    // Renderiza los productos filtrados
-    ProductosBuscados.forEach(producto => {
-        CrearCard(producto);
-    });
-  
 
-     // en caso de que el producto buscado no se encuentre, aparace ese mensaje
-      if(ProductosBuscados.length === 0){
+    productosBuscados.forEach(producto => crearCard(producto));
 
+    if (productosBuscados.length === 0) {
         const mensaje = document.createElement("h3");
-
-        mensaje.innerText =
-            "El producto no se encuentra en el catálogo";
-
-        document.getElementById("container")
-            .appendChild(mensaje);
-
-        return;
+        mensaje.innerText = "El producto no se encuentra en el catálogo";
+        container.appendChild(mensaje);
     }
-
 }
 
-const InputBuscarProductos = document.getElementById("input-buscar");
-InputBuscarProductos.addEventListener("input", () => {
-    // Ejecuta el filtro
-    BuscarProductos(InputBuscarProductos.value);
+// Evento del input de Búsqueda
+inputBuscar.addEventListener("input", () => {
+    buscarProductos(inputBuscar.value);
 });
+
+
 
 
 
