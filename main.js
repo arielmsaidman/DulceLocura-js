@@ -106,11 +106,6 @@ lupaYBuscar.appendChild(inputBuscar);
 filtrarYBuscar.appendChild(lupaYBuscar);
 main.appendChild(filtrarYBuscar);
 
-
-
-
-
-
 // 4. Catálogo de Productos y boton de ir al carrito
 const tituloYBoton= document.createElement("div");
 tituloYBoton.className="titulo-y-boton"
@@ -129,9 +124,6 @@ tituloYBoton.appendChild(tituloCatalogo);
 tituloYBoton.appendChild(btnIrCarrito);
 main.appendChild(tituloYBoton);
 
-
-
-
 const container = document.createElement("div");
 container.id = "container";
 container.className = "container";
@@ -142,9 +134,7 @@ const tituloCarrito = document.createElement("h2");
 tituloCarrito.id = "titulo-carrito";
 tituloCarrito.className = "titulo-carrito";
 tituloCarrito.innerText = "Carrito";
-
-
-
+tituloCarrito.style.display = "none";
 
 main.appendChild(tituloCarrito);
 
@@ -428,6 +418,7 @@ function actualizarBarraCarrito() {
         barraCarrito.style.display = "flex";
         tituloCarrito.style.display = "flex";
         btnIrCarrito.style.display = "block";
+        
     } else {
         barraCarrito.style.display = "none";
         tituloCarrito.style.display = "none";
@@ -615,6 +606,7 @@ function buscarProductos(palabra) {
     if (productosBuscados.length === 0) {
         const mensaje = document.createElement("h3");
         mensaje.innerText = "El producto no se encuentra en el catálogo";
+        mensaje.style.gridColumn = "1 / -1";
         container.appendChild(mensaje);
     }
 }
