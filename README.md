@@ -1,3 +1,4 @@
+
 ## Dulce Locura — Proyecto Final JavaScript
 ---
 ## Objetivos Generales
@@ -35,7 +36,7 @@
 
 ## Funcionalidad y Flujo de Trabajo
 - *Entrada:* Captura de datos del usuario mediante el buscador integrado, filtros de selección de categorías y selección de talles en cada producto.
-- *Procesamiento:* Validación del registro de usuario antes de realizar transacciones, actualización matemática del total e incremento o decremento de cantidades en el almacenamiento local.
+- *Procesamiento:* Valida el registro del usuario antes de realizar transacciones, actualiza los contadores del  precio total e incremento o decremento de cantidades en el almacenamiento local.
 - *Salida:* Renderizado actualizado del carrito en pantalla, sincronización automática con la barra de información final y notificaciones dinámicas.
 
 ## Interactividad 
@@ -44,13 +45,28 @@
 - El diseño está optimizado visualmente mediante transiciones y efectos hover en botones y tarjetas de producto.
 
 ## Escalabilidad
-- *Modularidad de funciones:* Las responsabilidades del programa se encuentran divididas en funciones específicas tales como `crearCard()`, `actualizarBarraCarrito()`, `eliminarProducto()` y `filtrarProductos()`.
-- *Estructuras de datos consistentes:* Los productos del catálogo y los elementos del carrito conservan esquemas de propiedades definidos para evitar errores de referencia en el código.
+- *Modularidad de funciones:* el programa se encuentra dividido entre las siguientes respectivas funciones:
+    `registrarse()`: permite registrar al usuario por medio de una ventana emergente, solicitando su nombre y dando la bienvenida
+    `cargarCarousel()`: carga las imagenes al carousel desde dede el archivo "carousel.json", las muestra de forma dinamica, y activa el desplazamiento cada 3 segundos de cada una.
+    `cambiarImagen()`: esta funcion se utiliza para avanzar a la siguiente imagen del carousel. Cuando llega a la última imagen, vuelve a la primera.
+    `crearCard()`: crea y muestra la tarjeta del producto de forma dinamica Incluye nombre, imagen, precio, talles, y los botones de agregar al carrito y comprar 
+    `realizarCompraDirecta()`: se accede a esta funcion cuando se hace click en el boton de comprar de la carta de un articulo. Valida si el usuario esta registrado, y si lo está, solicita direccion de envio y confirma la operacion al finalizar.
+    `comprarCarritoBtn()`: se accede a esta funcion cuando se hace click en el boton de comprar carrito. Valida si el usuario esta registrado, y si lo está, solicita direccion de envio, confirma la operacion al finalizar, y luego vacia el carrito
+    `DireccionDelEnvio`: se encarga de solicitar y devolver los datos de envío del cliente mediante una ventana emergente
+    `actualizarBarraCarrito()`: muestra la cantidad de productos y el precio total del carrito; si hay algun articulo muestra el titulo del carrito y el boton de ir al carrito
+    `agregarAlCarrito`: agrega un producto al carrito, actualiza la cantidad total de articulos y el precio total, tambien guarda la informacion en el Local Storage.
+    `crearCardCarrito`: crea y muestra las tarjeta de los productos del carrito de forma dinamica. Incluye nombre, imagen, precio, talle, cantidad y el boton de quitar una unidad.
+    `eliminarProducto()`: permite eliminar una unidad de un producto del carrito. Si el artículo tiene una sola unidad, se elimina completamente; de lo contrario, se reduce su cantidad. Luego actualiza el precio total, la cantidad de productos, el almacenamiento local y la interfaz del carrito. Además, muestra una notificación visual confirmando la eliminación.
+    `verCarrito()`: muestra el contenido actual del carrito, generando dinámicamente una tarjeta para cada producto agregado.
+    `vaciarCarrito()`: vacía completamente el carrito de compras, restablece sus valores en cero y actualiza tanto el almacenamiento local como la interfaz de usuario.
+    `filtrarProductos()`: filtra los productos del catálogo según la categoría seleccionada y actualiza la interfaz mostrando únicamente los productos que coinciden la categoria.
+    `buscarProductos()`: permite buscar productos en el catálogo mediante palabras clave, filtrando por nombre o categoría y actualizando los resultados mostrados en la interfaz.
+
 
 ## Legibilidad del Código
-- Uso de nomenclatura semántica y comprensible tanto en variables como en funciones (`usuarioRegistrado`, `precioCarrito`, `vaciarCarrito`).
+- Uso de nomenclatura semántica y comprensible tanto en variables como en funciones (`usuarioRegistrado`, `precioCarrito`, `vaciarCarrito`, etc).
 - Estructura lógica separada por bloques de comentarios descriptivos.
-- Remoción de logs de prueba innecesarios para mantener un código limpio y profesional en producción.
+- Remoción de logs de prueba innecesarios para mantener un código limpio(console.log()).
 
 
 -----
