@@ -134,7 +134,7 @@ const tituloCarrito = document.createElement("h2");
 tituloCarrito.id = "titulo-carrito";
 tituloCarrito.className = "titulo-carrito";
 tituloCarrito.innerText = "Carrito";
-tituloCarrito.style.display = "none";
+tituloCarrito.style
 
 main.appendChild(tituloCarrito);
 
